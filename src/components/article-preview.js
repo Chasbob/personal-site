@@ -17,7 +17,7 @@ export default ({ article }) => (
       }}
     />
     {article.tags &&
-      article.tags.map(tag => (
+      article.tags.map((tag) => (
         <p className={styles.tag} key={tag}>
           {tag}
         </p>

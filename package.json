@@ -2,18 +2,23 @@
   "name": "gatsby-contentful-starter",
   "description": "Starter Contentful Gatsby Blog",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
+  "author": "Charles de Freitas <me@chasbob.dev>",
   "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
+    "url": "https://github.com/Chasbob/personal-site/issues"
   },
   "dependencies": {
+    "@creativebulma/bulma-divider": "^1.1.0",
+    "bulma": "^0.9.1",
+    "bulmaswatch": "^0.8.1",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
+    "gatsby-plugin-sass": "^2.4.2",
     "gatsby-plugin-sharp": "^2.5.6",
     "gatsby-source-contentful": "^2.2.9",
     "gatsby-transformer-remark": "^2.7.3",
     "gatsby-transformer-sharp": "^2.4.6",
     "lodash": "^4.17.15",
+    "node-sass": "4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",

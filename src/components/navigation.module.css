@@ -9,6 +9,10 @@
   font-size: 1.25em;
 }
 
+.nav {
+  border-radius: 0;
+}
+
 .navigationItem {
   display: inline-flex;
   align-items: center;
