@@ -41,7 +41,7 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "homepage": "https://github.com/contentful-userland/gatsby-contentful-starter#readme",
+  "homepage": "https://github.com/Chasbob/personal-site#readme",
   "keywords": [
     "gatsby",
     "contentful"
@@ -50,7 +50,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful-userland/gatsby-contentful-starter.git"
+    "url": "git+https://github.com/Chasbob/personal-site.git"
   },
   "scripts": {
     "dev": "npm run develop",

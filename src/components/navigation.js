@@ -12,16 +12,18 @@ export default () => {
     <nav role="navigation" className={`navbar ` + navigation.nav}>
       <div className="container">
         <div className="navbar-brand">
-          <button
-            className={`navbar-burger is-not-button ${
-              active ? 'is-active' : ''
-            }`}
+          <a
             onClick={handleToggle}
+            role="button"
+            className={`navbar-burger burger ${active ? 'is-active' : ''}`}
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
           >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </button>
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </a>
         </div>
         <div className={`navbar-menu ${active ? 'is-active' : ''}`}>
           <div className="navbar-end">
