@@ -49,5 +49,7 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
+    'gatsby-plugin-manifest',
+    'gatsby-plugin-offline',
   ],
 }
