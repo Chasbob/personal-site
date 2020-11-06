@@ -26,6 +26,16 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'chasbob',
+    nav: [
+      {
+        name: 'Home',
+        path: '/',
+      },
+      {
+        name: 'Blog',
+        path: '/blog',
+      },
+    ],
   },
   plugins: [
     'gatsby-transformer-remark',

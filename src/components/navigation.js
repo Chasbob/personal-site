@@ -1,8 +1,23 @@
 import React, { useState } from 'react'
-import { Link } from 'gatsby'
+import get from 'lodash/get'
+import { Link, useStaticQuery } from 'gatsby'
 import navigation from './navigation.module.css'
 
 export default () => {
+  const data = useStaticQuery(graphql`
+    query NavQuery {
+      site {
+        siteMetadata {
+          nav {
+            name
+            path
+          }
+        }
+      }
+    }
+  `)
+  const items = get(data, 'site.siteMetadata.nav')
+
   const [active, setActive] = useState(false)
 
   const handleToggle = () => {
@@ -26,16 +41,23 @@ export default () => {
           </a>
         </div>
         <div className={`navbar-menu ${active ? 'is-active' : ''}`}>
-          <div className="navbar-end">
-            <Link className="navbar-item is-tab is-family-code" to="/">
-              <span>Home</span>
-            </Link>
-            <Link className="navbar-item is-tab is-family-code" to="/blog">
-              <span>Blog</span>
-            </Link>
-          </div>
+          <NavEnd children={items} />
         </div>
       </div>
     </nav>
+  )
+}
+
+function NavEnd({ children }) {
+  return (
+    <div className="navbar-end">
+      {children.map((child) => {
+        return (
+          <Link className="navbar-item is-tab is-family-code" to={child.path}>
+            <span>{child.name}</span>
+          </Link>
+        )
+      })}
+    </div>
   )
 }
