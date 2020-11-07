@@ -52,6 +52,7 @@ module.exports = {
         name: `chasbob`,
         short_name: `chasbob`,
         start_url: `/`,
+        icon: 'static/favicon.png',
         background_color: `#5496ec`,
         theme_color: `#6f8dc6`,
         display: `standalone`,

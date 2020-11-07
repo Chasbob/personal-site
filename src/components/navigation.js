@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
+import { FaCode } from 'react-icons/fa'
 
 export default () => {
   const [active, setActive] = useState(false)
@@ -8,6 +9,7 @@ export default () => {
       site {
         siteMetadata {
           title
+          name
           nav {
             name
             path
@@ -17,13 +19,14 @@ export default () => {
     }
   `)
   const items = data.site.siteMetadata.nav
+  const title = data.site.siteMetadata.name
 
   const handleToggle = () => {
     setActive(!active)
   }
   return (
     <NavBar sticky={false}>
-      <NavBrand active={active} onToggle={handleToggle} />
+      <NavBrand active={active} onToggle={handleToggle} title={title} />
       <NavMenu active={active}>
         <NavStart items={items} />
         <NavEnd />
@@ -36,7 +39,9 @@ function NavBar({ children, sticky }) {
   return (
     <nav
       role="navigation"
-      className={`navbar ${sticky ? 'has-shadow is-sticky-custom' : ''}`}
+      className={`navbar is-primary ${
+        sticky ? 'has-shadow is-sticky-custom' : ''
+      }`}
     >
       <div className="container">{children}</div>
     </nav>
@@ -46,10 +51,18 @@ function NavBar({ children, sticky }) {
 function NavBrand({ active, onToggle }) {
   return (
     <div className="navbar-brand">
+      <Link
+        to="/"
+        key="title"
+        className="navbar-item is-transparent"
+        activeClassName="has-text-weight-bold"
+      >
+        <FaCode />
+      </Link>
       <a
         onClick={onToggle}
         role="button"
-        className={`navbar-burger burger ${active ? 'is-active' : ''}`}
+        className={`navbar-burger ${active ? 'is-active' : ''}`}
         aria-label="menu"
         aria-expanded="false"
       >
