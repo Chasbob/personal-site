@@ -1,0 +1,7 @@
+nav.navbar {
+  border-radius: 0;
+  &.is-sticky-custom {
+    position: sticky;
+    top: 0;
+  }
+}

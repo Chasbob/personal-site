@@ -24,7 +24,4 @@ ${chalk.yellow(
   'yarn run build'
 )} to create a production ready static site in ${chalk.green('./public')}
 
-For further information check the readme of the project
-(https://github.com/contentful-userland/gatsby-contentful-starter)
-
 `)

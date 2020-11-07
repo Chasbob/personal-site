@@ -1,18 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import get from 'lodash/get'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
+import Layout from '../layouts/basic'
 
 import heroStyles from '../components/hero.module.css'
 
-function BlogPostTemplate(props) {
-  const post = get(props, 'data.contentfulBlogPost')
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
+export function BlogPostTemplate({ data, location }) {
+  const post = data.contentfulBlogPost
+  const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout location={props.location}>
+    <Layout location={location}>
       <div style={{ background: '#fff' }}>
         <Helmet title={`${post.title} | ${siteTitle}`} />
         <div className={heroStyles.hero}>

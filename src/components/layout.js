@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.scss'
+import SEO from './seo'
 import Container from './container'
 import Navigation from './navigation'
+import Footer from './footer'
+import base from '../style/base.scss'
 
-function Template(props) {
-  const { location, children } = props
+function Template({ location, children }) {
   let header
 
   let rootPath = `/`
@@ -14,10 +14,14 @@ function Template(props) {
   }
 
   return (
-    <Container>
-      <Navigation />
-      {children}
-    </Container>
+    <div>
+      <SEO path={location} />
+      <Container>
+        <Navigation />
+        {children}
+      </Container>
+      {/*<Footer location={location} />*/}
+    </div>
   )
 }
 

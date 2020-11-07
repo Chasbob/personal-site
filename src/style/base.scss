@@ -2,11 +2,27 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 $family-sans-serif: 'Work Sans', sans-serif;
 $family-primary: 'Roboto', sans-serif;
 $modal-content-width: 1200px;
+$navbar-burger-color: inherit;
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+$footer-padding: 3rem 1.5rem 3rem;
 @import '~bulmaswatch/flatly/variables';
 @import '~bulma/bulma';
 @import '~bulmaswatch/flatly/overrides';
 @import "~@creativebulma/bulma-divider";
+
+@import "nav";

@@ -6,33 +6,29 @@ import styles from './blog.module.css'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
-function BlogIndex(props) {
-  const siteTitle = get(props, 'data.site.siteMetadata.title')
-  const posts = get(props, 'data.allContentfulBlogPost.edges')
-
+export default function Blog({ data, location }) {
+  const posts = get(data, 'allContentfulBlogPost.edges')
+  const siteTitle = get(data, 'site.siteMetadata.title')
   return (
-    <Layout location={props.location}>
-      <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
-        <div className={styles.hero}>Blog</div>
-        <div className="wrapper">
-          <h2 className="section-headline">Recent articles</h2>
-          <ul className="article-list">
-            {posts.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <ArticlePreview article={node} />
-                </li>
-              )
-            })}
-          </ul>
+    <Layout location={location}>
+      <Helmet title={siteTitle} />
+      <div className={styles.hero}>Blog</div>
+      <section className="section">
+        <div className="container">
+          {posts.map(({ node }) => {
+            return (
+              <li key={node.slug}>
+                <ArticlePreview article={node} />
+              </li>
+            )
+          })}
         </div>
-      </div>
+      </section>
     </Layout>
   )
 }
 
-export default BlogIndex
+// export default BlogIndex
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
@@ -49,7 +45,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+            fluid(maxWidth: 700, maxHeight: 392, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid
             }
           }

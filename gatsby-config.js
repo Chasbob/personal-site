@@ -26,10 +26,39 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'chasbob',
+    name: 'chasbob',
+    description: 'My personal website and ramblings',
+    author: {
+      name: 'Charles de Freitas',
+    },
+    siteUrl: 'https://chasbob.dev',
+    github: 'https://github.com/chasbob/personal-site',
+    nav: [
+      {
+        name: 'Home',
+        path: '/',
+      },
+      {
+        name: 'Blog',
+        path: '/blog',
+      },
+    ],
   },
+
   plugins: [
-    'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `chasbob`,
+        short_name: `chasbob`,
+        start_url: `/`,
+        background_color: `#5496ec`,
+        theme_color: `#6f8dc6`,
+        display: `standalone`,
+        lang: 'en',
+      },
+    },
+    'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -37,19 +66,19 @@ module.exports = {
       options: {
         // Available options and their defaults:
         base64Width: 42,
-        forceBase64Format: ``, // valid formats: png,jpg,webp
+        forceBase64Format: `png`, // valid formats: png,jpg,webp
         useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
         stripMetadata: true,
         defaultQuality: 90,
-        base64: true,
         failOnError: true,
       },
     },
+    'gatsby-plugin-transition-link',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
-    'gatsby-plugin-manifest',
-    'gatsby-plugin-offline',
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
   ],
 }
