@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery, navigate } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
 
 export default () => {
@@ -51,14 +51,14 @@ function NavBar({ children, sticky }) {
 function NavBrand({ active, onToggle }) {
   return (
     <div className="navbar-brand">
-      <Link
-        to="/"
-        key="title"
-        className="navbar-item is-transparent"
-        activeClassName="has-text-weight-bold"
+      <a
+        className="navbar-item is-transparent is-button is-static"
+        onClick={() => {
+          navigate('/')
+        }}
       >
         <FaCode />
-      </Link>
+      </a>
       <a
         onClick={onToggle}
         role="button"
@@ -91,7 +91,7 @@ function NavStart({ items }) {
               to={item.path}
               key={index}
               className="navbar-item"
-              activeClassName="is-active has-text-weight-bold"
+              activeClassName="is-active"
             >
               {item.name}
             </Link>

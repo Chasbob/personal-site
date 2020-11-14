@@ -1,7 +1,20 @@
 import React from 'react'
+import { get } from 'lodash'
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { graphql, useStaticQuery } from 'gatsby'
 
-export default ({ twitter, github, linkedin, email }) => {
+export default () => {
+  const data = useStaticQuery(graphql`
+    query SocialQuery {
+      contentfulPerson(contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" }) {
+        github
+        twitter
+        email
+        linkedin
+      }
+    }
+  `)
+  const { github, twitter, linkedin, email } = get(data, 'contentfulPerson')
   let socials = []
   if (github) {
     socials.push(
@@ -56,49 +69,5 @@ export default ({ twitter, github, linkedin, email }) => {
     )
   }
 
-  return (
-    <nav className="panel mt-3">
-      <p className="panel-heading is-family-primary">Links</p>
-      {socials}
-      {/* <TransitionLink className="panel-block is-active" to="/blog">
-        <span className="panel-icon">
-          <FaBlog />
-        </span>
-        Blog
-      </TransitionLink>
-      <TransitionLink className="panel-block is-active" to="/cv">
-        <span className="panel-icon">
-          <FaScroll />
-        </span>
-        CV
-      </TransitionLink>
-      <a className="panel-block is-active" href="https://github.com/Chasbob">
-        <span className="panel-icon">
-          <DiGithub />
-        </span>
-        GitHub
-      </a>
-      <a
-        className="panel-block is-active"
-        href="https://www.linkedin.com/in/charles-de-freitas/"
-      >
-        <span className="panel-icon">
-          <FaLinkedin />
-        </span>
-        Linkedin
-      </a>
-      <a className="panel-block is-active" href="https://twitter.com/chasbob97">
-        <span className="panel-icon">
-          <FaTwitter />
-        </span>
-        Twitter
-      </a>
-      <a className="panel-block is-active" href="mailto:charles@defreitas.io">
-        <span className="panel-icon">
-          <AiOutlineMail />
-        </span>
-        Email
-      </a> */}
-    </nav>
-  )
+  return <nav className="panel mt-3">{socials}</nav>
 }

@@ -5,11 +5,13 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import Social from '../components/social'
+import { Columns } from '../components/layout/column'
+import { FullCard } from '../components/layout/card'
+import { FaLink } from 'react-icons/all'
 
 export default function RootIndex({ location, data }) {
   const siteTitle = get(data, 'site.siteMetadata.title')
   const [author] = get(data, 'allContentfulPerson.edges')
-  const { github, twitter, linkedin, email } = author.node
 
   return (
     <Layout location={location}>
@@ -18,25 +20,51 @@ export default function RootIndex({ location, data }) {
         <Hero data={author.node} />
         <section className="section">
           <div className="container">
-            <div className="card is-medium">
-              <div className="card-content">
-                <div className="content">
-                  <p className="title is-4 is-family-code is-inline">
-                    $ whoami{' '}
-                  </p>
-                  <Social
-                    github={github}
-                    twitter={twitter}
-                    linkedin={linkedin}
-                    email={email}
-                  />
-                </div>
-              </div>
-            </div>
+            <Columns>
+              <Spotify />
+              <Readme />
+              <SocialCard />
+            </Columns>
           </div>
         </section>
       </div>
     </Layout>
+  )
+}
+
+const Spotify = () => (
+  <FullCard
+    title="Currently Vibing to..."
+    icon="🎧"
+    image={
+      <img
+        src="https://novatorem.chasbob.vercel.app/api/spotify"
+        alt="Spotify Playing"
+        width="350"
+      />
+    }
+  />
+)
+
+const Readme = () => (
+  <FullCard
+    title="Working on..."
+    icon="💻"
+    image={
+      <img
+        src="https://github-readme-stats-six-tau.vercel.app/api?username=chasbob"
+        alt="Github stats"
+        width="350"
+      />
+    }
+  />
+)
+
+function SocialCard() {
+  return (
+    <FullCard title="Links" icon={<FaLink />}>
+      <Social />
+    </FullCard>
   )
 }
 
@@ -64,10 +92,6 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFluid
             }
           }
-          github
-          twitter
-          linkedin
-          email
         }
       }
     }
