@@ -5,6 +5,7 @@ require('dotenv').config({
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  host: process.env.CONTENTFUL_HOST || 'cdn.contentful.com',
 }
 
 // if you want to use the preview API please define
@@ -41,6 +42,10 @@ module.exports = {
       {
         name: 'Blog',
         path: '/blog',
+      },
+      {
+        name: 'CV',
+        path: 'https://cv.chasbob.dev',
       },
     ],
   },

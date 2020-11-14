@@ -24,7 +24,7 @@
     "gatsby-plugin-transition-link": "^1.20.2",
     "gatsby-react-router-scroll": "^3.0.15",
     "gatsby-source-contentful": "^3.1.2",
-    "gatsby-transformer-remark": "^2.7.3",
+    "gatsby-transformer-remark": "^2.10.0",
     "gatsby-transformer-sharp": "^2.4.6",
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
@@ -37,14 +37,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "chalk": "^4.0.0",
-    "contentful-import": "^7.7.8",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
     "gatsby": "^2.20.25",
     "husky": ">=4",
-    "inquirer": "^7.1.0",
     "lint-staged": ">=10",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
@@ -73,11 +70,9 @@
     "build": "gatsby build",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
-    "postinstall": "node ./bin/hello.js",
-    "setup": "node ./bin/setup.js",
     "start": "npm run develop",
-    "heroku-postbuild": "gatsby build",
-    "cleanup-repository": "yarn remove contentful-import chalk inquirer && node ./bin/cleanup.js && rimraf bin contentful"
+    "clean": "gatsby clean",
+    "heroku-postbuild": "gatsby build"
   },
   "husky": {
     "hooks": {
