@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Card, { CardHeader, CardImage, CardContent } from './layout/card'
-import style from './article-preview.module.css'
+import style from './blog-preview.module.css'
 
 export default ({ article }) => {
   return (
