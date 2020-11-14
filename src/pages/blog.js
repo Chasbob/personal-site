@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import styles from './blog.module.css'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import BlogPreview from '../components/blog-preview'
 
 export default function Blog({ data, location }) {
   const posts = get(data, 'allContentfulBlogPost.edges')
@@ -18,7 +18,7 @@ export default function Blog({ data, location }) {
           {posts.map(({ node }) => {
             return (
               <li key={node.slug}>
-                <ArticlePreview article={node} />
+                <BlogPreview article={node} />
               </li>
             )
           })}

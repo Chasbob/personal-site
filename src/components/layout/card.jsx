@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { ChildWrapper } from '../helper'
 import style from './card.module.css'
-import previewStyles from '../article-preview.module.css'
+import previewStyles from '../blog-preview.module.css'
 
 export const FullCard = ({ title, icon, image, children }) => (
   <div className={`card`}>
