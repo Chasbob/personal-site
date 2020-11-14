@@ -2,35 +2,31 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
+import { get } from 'lodash'
 import Layout from '../layouts/basic'
 
 import heroStyles from '../components/hero.module.css'
+import style from './blog-post.module.css'
 
 export function BlogPostTemplate({ data, location }) {
-  const post = data.contentfulBlogPost
-  const siteTitle = data.site.siteMetadata.title
-
+  const post = get(data, 'contentfulBlogPost')
+  const siteTitle = get(data, 'site.siteMetadata.title')
   return (
     <Layout location={location}>
       <div style={{ background: '#fff' }}>
         <Helmet title={`${post.title} | ${siteTitle}`} />
-        <div className={heroStyles.hero}>
-          <Img
-            className={heroStyles.heroImage}
-            alt={post.title}
-            fluid={post.heroImage.fluid}
-          />
-        </div>
+        {/*<div className={heroStyles.hero}>*/}
+        {/*  <Img*/}
+        {/*    className={style.hero}*/}
+        {/*    alt={post.title}*/}
+        {/*    fluid={post.heroImage.fluid}*/}
+        {/*  />*/}
+        {/*</div>*/}
         <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
-          <p
-            style={{
-              display: 'block',
-            }}
-          >
-            {post.publishDate}
-          </p>
+          <h1 className="section-headline title">{post.title}</h1>
+          <p className={style.publishDate}>{post.publishDate}</p>
           <div
+            className="content"
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,
             }}
