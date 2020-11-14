@@ -8,3 +8,8 @@
   margin: -1em -2.5em 1em;
   font-size: 2em
 }
+
+.publish-date {
+  display: block;
+  font-style: italic;
+}
