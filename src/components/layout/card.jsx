@@ -13,32 +13,31 @@ export const FullCard = ({ title, icon, image, children }) => (
 )
 
 export default ({ children, className }) => (
-  <div className={`card ${className}`}>{children}</div>
+  <div className={`card ${!!className && className}`}>{children}</div>
 )
 
 export const CardHeader = ({ title, icon, className }) => (
-  <div className={`card-header ${className}`}>
+  <div className={`card-header ${!!className && className}`}>
     <div className="card-header-title is-centered">{title}</div>
     <div className="card-header-icon">{icon}</div>
   </div>
 )
+
 export const CardContent = ({ children }) => (
   <div className="card-content">{children}</div>
 )
+
 export const CardImage = ({ image, fluid }) => {
-  if (!image) {
-    return <></>
-  }
-  if (fluid) {
+  if (!!fluid) {
     return (
-      <div className={`card-image ${previewStyles.previewImage}`}>
+      <div className={`card-image`}>
         <Img className="image" alt={``} fluid={image} />
       </div>
     )
   }
   return (
-    <div className={`card-image ${style.cardImage}`}>
-      <figure className="image">{image}</figure>
+    <div className={`card-image`}>
+      <Img className="image" alt={``} fixed={image} />
     </div>
   )
 }
