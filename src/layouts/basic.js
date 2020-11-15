@@ -14,7 +14,6 @@ export function Layout({ children }) {
   return (
     <>
       <Navigation sticky={true} />
-
       {children}
     </>
   )
@@ -25,9 +24,7 @@ export function Section({ children }) {
     <section className="section">
       <div className="container">
         <div className="columns">
-          <div className="column is-two-thirds-desktop is-full-tablet">
-            {children}
-          </div>
+          <div className="column">{children}</div>
         </div>
       </div>
     </section>

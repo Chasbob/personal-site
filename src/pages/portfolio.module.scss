@@ -1,0 +1,41 @@
+@import "~bulma/sass/utilities/_all";
+
+.card {
+  max-width: inherit;
+  max-height: fit-content;
+
+  .card-image {
+    border-color: black;
+  }
+}
+
+.grid {
+  $grid-gap: 2rem;
+  display: grid;
+  gap: $grid-gap;
+
+  .grid-item {
+    & > * {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@include mobile {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@include tablet {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include desktop {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
