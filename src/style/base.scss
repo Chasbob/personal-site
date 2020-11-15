@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 $family-sans-serif: 'Work Sans', sans-serif;
-$family-primary: 'Roboto', sans-serif;
+$family-primary: 'Work Sans', sans-serif;
 $modal-content-width: 1200px;
 $navbar-burger-color: inherit;
 
@@ -26,3 +26,4 @@ $footer-padding: 3rem 1.5rem 3rem;
 @import "~@creativebulma/bulma-divider";
 
 @import "nav";
+@import "card";
