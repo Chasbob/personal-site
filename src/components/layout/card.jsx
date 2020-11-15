@@ -37,7 +37,7 @@ export const CardImage = ({ image, fluid }) => {
   }
   return (
     <div className={`card-image`}>
-      <Img className="image" alt={``} fixed={image} />
+      <figure className="image">{image}</figure>
     </div>
   )
 }
