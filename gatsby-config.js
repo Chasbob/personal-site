@@ -44,6 +44,10 @@ module.exports = {
         path: '/blog',
       },
       {
+        name: 'Portfolio',
+        path: '/portfolio',
+      },
+      {
         name: 'CV',
         path: 'https://cv.chasbob.dev',
       },
