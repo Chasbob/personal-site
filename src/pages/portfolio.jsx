@@ -5,11 +5,9 @@ import get from 'lodash/get'
 import style from './portfolio.module.scss'
 import Card, {
   CardContent,
-  CardFooter,
   CardHeader,
   CardImage,
 } from '../components/layout/card'
-import { FaBookmark, FaLink } from 'react-icons/all'
 
 export default ({ data, location }) => {
   const portfolio = get(data, 'allContentfulPortfolio.edges')
@@ -28,9 +26,9 @@ export default ({ data, location }) => {
         </h1>
       </Section>
       <Section>
-        {Object.keys(categories).map((category) => (
-          <Category items={categories[category]} />
-        ))}
+        <Category items={categories['work']} key="work" />
+        <Category items={categories['projects']} key="projects" />
+        <Category items={categories['volunteering']} key="volunteering" />
       </Section>
     </Layout>
   )
@@ -43,7 +41,7 @@ const Category = ({ items }) => (
     </h2>
     <div className={style.grid}>
       {items.map((item) => (
-        <Item {...item} />
+        <Item {...item} key={item.title} />
       ))}
     </div>
   </div>
@@ -52,18 +50,18 @@ const Category = ({ items }) => (
 const Item = ({ title, link, image, role, description }) => (
   <div className={style.gridItem}>
     <Card className={`tile is-child ${style.card}`} key={title}>
-      <CardHeader title={title} />
+      <CardHeader
+        title={
+          <a className={style.link} href={link}>
+            {title}
+          </a>
+        }
+      />
       <CardImage image={image.fluid} fluid />
       <CardContent>
-        <h1>{role}</h1>
-        <p>{description}</p>
+        <h1 className="is-text has-text-weight-bold">{role}</h1>
+        <p className="is-text has-text-weight-light">{description}</p>
       </CardContent>
-      <CardFooter>
-        <a href={link}>
-          <FaLink />
-        </a>
-        <FaBookmark />
-      </CardFooter>
     </Card>
   </div>
 )
