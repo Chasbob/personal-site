@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout, Section } from '../layouts/basic'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
 import style from './portfolio.module.scss'
 import Card, {
   CardContent,
@@ -10,10 +9,9 @@ import Card, {
   CardHeader,
   CardImage,
 } from '../components/layout/card'
-import { FaLink, FaBookmark } from 'react-icons/all'
+import { FaBookmark, FaLink } from 'react-icons/all'
 
 export default ({ data, location }) => {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const portfolio = get(data, 'allContentfulPortfolio.edges')
   const categories = portfolio
     .map((i) => i.node)
@@ -24,7 +22,11 @@ export default ({ data, location }) => {
     }, {})
   return (
     <Layout location={location}>
-      <Helmet title={siteTitle} />
+      <Section>
+        <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
+          Portfolio{' '}
+        </h1>
+      </Section>
       <Section>
         {Object.keys(categories).map((category) => (
           <Category items={categories[category]} />
