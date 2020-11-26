@@ -1,0 +1,13 @@
+.preview {
+  box-shadow: 0 0 38px -11px rgba(0, 0, 0, 0.68);
+  transition: all 0.5s ease;
+
+  &:hover {
+    outline: none;
+    transform: scale(1.04);
+  }
+}
+
+h2 {
+  color: black;
+}

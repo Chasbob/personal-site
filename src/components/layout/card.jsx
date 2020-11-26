@@ -2,18 +2,21 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { ChildWrapper } from '../helper'
 import style from './card.module.css'
-import previewStyles from '../blog-preview.module.css'
 
-export const FullCard = ({ title, icon, image, children }) => (
-  <div className={`card`}>
+export const FullCard = ({ title, icon, image, children, fill }) => (
+  <div className={`card ${!!fill && style.cardFill}`}>
     <CardHeader title={title} icon={icon} />
     <CardImage image={image} />
     <div className="card-content">{children}</div>
   </div>
 )
 
-export default ({ children, className }) => (
-  <div className={`card ${!!className && className}`}>{children}</div>
+export default ({ children, className, fill }) => (
+  <div
+    className={`card ${!!fill && style.cardFill} ${!!className && className}`}
+  >
+    {children}
+  </div>
 )
 
 export const CardHeader = ({ title, icon, className }) => (

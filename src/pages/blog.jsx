@@ -1,26 +1,23 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
-import styles from './blog.module.css'
 import Layout from '../components/layout'
 import BlogPreview from '../components/blog-preview'
+import { Section } from '../layouts/basic'
 
-export default function Blog({ data, location }) {
+export default function Blog({ data }) {
   const posts = get(data, 'allContentfulBlogPost.edges')
-  const siteTitle = get(data, 'site.siteMetadata.title')
   return (
-    <Layout location={location}>
-      <Helmet title={siteTitle} />
-      <div className={styles.hero}>Blog</div>
+    <Layout>
+      <Section>
+        <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
+          My Blog{' '}
+        </h1>
+      </Section>
       <section className="section">
         <div className="container">
           {posts.map(({ node }) => {
-            return (
-              <li key={node.slug}>
-                <BlogPreview article={node} />
-              </li>
-            )
+            return <BlogPreview article={node} key={node.slug} />
           })}
         </div>
       </section>
@@ -45,7 +42,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            fluid(maxWidth: 700, maxHeight: 392, resizingBehavior: SCALE) {
+            fluid(maxWidth: 800, maxHeight: 200, resizingBehavior: FILL) {
               ...GatsbyContentfulFluid
             }
           }

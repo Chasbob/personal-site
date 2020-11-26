@@ -9,12 +9,12 @@ import { Columns } from '../components/layout/column'
 import { FullCard } from '../components/layout/card'
 import { FaLink } from 'react-icons/all'
 
-export default function RootIndex({ location, data }) {
+export default function RootIndex({ data }) {
   const siteTitle = get(data, 'site.siteMetadata.title')
   const [author] = get(data, 'allContentfulPerson.edges')
 
   return (
-    <Layout location={location}>
+    <Layout>
       <div style={{ background: '#fff' }}>
         <Helmet title={siteTitle} />
         <Hero data={author.node} />
