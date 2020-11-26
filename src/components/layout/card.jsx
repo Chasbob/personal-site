@@ -21,8 +21,8 @@ export default ({ children, className, fill }) => (
 
 export const CardHeader = ({ title, icon, className }) => (
   <div className={`card-header ${!!className && className}`}>
-    <div className="card-header-title is-centered">{title}</div>
-    <div className="card-header-icon">{icon}</div>
+    {!!title && <div className="card-header-title is-centered">{title}</div>}
+    {!!icon && <div className="card-header-icon">{icon}</div>}
   </div>
 )
 

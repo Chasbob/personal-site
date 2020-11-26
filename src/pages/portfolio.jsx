@@ -26,26 +26,27 @@ export default ({ data, location }) => {
         </h1>
       </Section>
       <Section>
-        <Category items={categories['work']} key="work" />
-        <Category items={categories['projects']} key="projects" />
-        <Category items={categories['volunteering']} key="volunteering" />
+        <Category items={categories['work']} title="work" />
+        <Category items={categories['projects']} title="projects" />
+        <Category items={categories['volunteering']} title="volunteering" />
       </Section>
     </Layout>
   )
 }
 
-const Category = ({ items }) => (
-  <div className="section">
-    <h2 className="is-size-2 title is-capitalized is-family-primary">
-      {items[0].category}
-    </h2>
-    <div className={style.grid}>
-      {items.map((item) => (
-        <Item {...item} key={item.title} />
-      ))}
+const Category = ({ items, title }) =>
+  !!items && (
+    <div className="section" key={title}>
+      <h2 className="is-size-2 title is-capitalized is-family-primary">
+        {title}
+      </h2>
+      <div className={style.grid}>
+        {items.map((item) => (
+          <Item {...item} key={item.title} />
+        ))}
+      </div>
     </div>
-  </div>
-)
+  )
 
 const Item = ({ title, link, image, role, description }) => (
   <div className={style.gridItem}>
