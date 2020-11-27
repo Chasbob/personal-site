@@ -75,24 +75,11 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        // Available options and their defaults:
-        base64Width: 42,
-        forceBase64Format: `png`, // valid formats: png,jpg,webp
-        useMozJpeg: process.env.GATSBY_JPEG_ENCODER === `MOZJPEG`,
-        stripMetadata: true,
-        defaultQuality: 90,
-        failOnError: true,
-      },
-    },
     'gatsby-plugin-transition-link',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
     'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
   ],
 }
