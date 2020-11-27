@@ -3,8 +3,8 @@
 * [x] Gatsby
 * [x] Contentful
 * [x] A lack of design or aesthetics
-* [ ] Design
-* [ ] Content
+* ~~Design~~
+* ~~Content~~
 
 
 ## Getting started
@@ -23,7 +23,7 @@ $ yarn install
 
 This project comes with a Contentful setup command `yarn run setup`.
 
-This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a config file (`./contentful.json`).
+This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a configuration file (`./contentful.json`).
 
 `yarn run setup` automates that for you but if you want to do it yourself rename `.contentful.json.sample` to `.contentful.json` and add your configuration in this file.
 
@@ -43,7 +43,12 @@ Run a production build into `./public`. The result is ready to be put on any sta
 
 Run a production build into `./public` and publish the site to GitHub pages.
 
-### `yarn run cleanup-repository`
+### `yarn run clean`
 
 Removes all dependencies, scripts and data from the installation script.
 
+## Hooks
+
+### [husky](https://github.com/typicode/husky) `pre-commit`
+
+Lint staged code
