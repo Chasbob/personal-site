@@ -1,34 +1,31 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
-import Layout from '../components/layout'
+import { Home } from '../layouts/basic'
 import Social from '../components/social'
 import { Columns } from '../components/layout/column'
 import { FullCard } from '../components/layout/card'
 import { FaLink } from 'react-icons/all'
 
 export default function RootIndex({ data }) {
-  const siteTitle = get(data, 'site.siteMetadata.title')
   const [author] = get(data, 'allContentfulPerson.edges')
 
   return (
-    <Layout>
+    <Home>
       <div style={{ background: '#fff' }}>
-        <Helmet title={siteTitle} />
         <Hero data={author.node} />
         <section className="section">
           <div className="container">
             <Columns>
-              <Spotify />
-              <Readme />
               <SocialCard />
+              <Readme />
+              <Spotify />
             </Columns>
           </div>
         </section>
       </div>
-    </Layout>
+    </Home>
   )
 }
 

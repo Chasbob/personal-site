@@ -5,13 +5,14 @@ import Img from 'gatsby-image'
 import style from './blog-preview.module.scss'
 
 export default ({ article }) => {
-  const handleClick = () => navigate(`/blog/${article.slug}`)
+  const location = `/blog/${article.slug}/`
+  const handleClick = () => navigate(location)
   return (
     <div
       className={`is-clickable box mb-6 ${style.preview}`}
       onClick={handleClick}
     >
-      <Link to={`/blog/${article.slug}`}>
+      <Link to={location}>
         <h2 className="is-capitalized has-text-weight-bold is-size-5-mobile is-size-4-tablet">
           {article.title}
         </h2>

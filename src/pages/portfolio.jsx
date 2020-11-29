@@ -19,7 +19,7 @@ export default ({ data, location }) => {
       return acc
     }, {})
   return (
-    <Layout location={location}>
+    <Layout title="portfolio">
       <Section>
         <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
           Portfolio{' '}

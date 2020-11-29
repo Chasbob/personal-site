@@ -1,7 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { get } from 'lodash'
-import Layout, { Section } from '../layouts/basic'
+import { Layout, Section } from '../layouts/basic'
+import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
 export function BlogPostTemplate({ data }) {
   const post = get(data, 'contentfulBlogPost')
@@ -10,12 +11,14 @@ export function BlogPostTemplate({ data }) {
       <Section>
         <h1 className="section-headline title is-capitalized">{post.title}</h1>
         <p className="subtitle">{post.publishDate}</p>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{
-            __html: post.body.childMarkdownRemark.html,
-          }}
-        />
+        <SRLWrapper>
+          <div
+            className="content"
+            dangerouslySetInnerHTML={{
+              __html: post.body.childMarkdownRemark.html,
+            }}
+          />
+        </SRLWrapper>
       </Section>
     </Layout>
   )
