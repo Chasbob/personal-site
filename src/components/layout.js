@@ -5,7 +5,7 @@ import Navigation from './navigation'
 import Footer from './footer'
 import base from '../style/base.scss'
 
-function Template({ children }) {
+export default ({ children, title }) => {
   let rootPath = `/`
   if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
     rootPath = __PATH_PREFIX__ + `/`
@@ -13,7 +13,7 @@ function Template({ children }) {
 
   return (
     <div>
-      <SEO />
+      <SEO title={title} />
       <Container>
         <Navigation />
         {children}
@@ -22,5 +22,3 @@ function Template({ children }) {
     </div>
   )
 }
-
-export default Template

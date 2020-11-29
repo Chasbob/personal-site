@@ -1,14 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
-import Layout from '../components/layout'
+import { Layout, Section } from '../layouts/basic'
 import BlogPreview from '../components/blog-preview'
-import { Section } from '../layouts/basic'
 
 export default function Blog({ data }) {
   const posts = get(data, 'allContentfulBlogPost.edges')
   return (
-    <Layout>
+    <Layout title="blog">
       <Section>
         <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
           My Blog{' '}
