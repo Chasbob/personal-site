@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Layout, Section } from '../layouts/basic'
-import get from 'lodash/get'
 import style from './portfolio.module.scss'
 import Card, {
   CardContent,
@@ -10,7 +9,7 @@ import Card, {
 } from '../components/layout/card'
 
 export default ({ data, location }) => {
-  const portfolio = get(data, 'allContentfulPortfolio.edges')
+  const portfolio = data.allContentfulPortfolio.edges
   const categories = portfolio
     .map((i) => i.node)
     .reduce((acc, cur) => {

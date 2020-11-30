@@ -74,12 +74,34 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require('sass'),
+      },
+    },
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
     'gatsby-transformer-remark',
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+      },
+    },
+    `gatsby-plugin-preact`,
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: [
+          'https://github-readme-stats-six-tau.vercel.app',
+          'https://novatorem.chasbob.vercel.app',
+        ],
+      },
+    },
   ],
 }

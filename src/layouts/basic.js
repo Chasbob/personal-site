@@ -9,7 +9,7 @@ export function Home({ children, title }) {
   return (
     <>
       <SEO title={title} />
-      <Navigation sticky={true} />
+      <Navigation />
       {children}
     </>
   )
