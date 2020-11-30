@@ -1,11 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import { Layout, Section } from '../layouts/basic'
 import BlogPreview from '../components/blog-preview'
 
 export default function Blog({ data }) {
-  const posts = get(data, 'allContentfulBlogPost.edges')
+  const posts = data.allContentfulBlogPost.edges
   return (
     <Layout title="blog">
       <Section>

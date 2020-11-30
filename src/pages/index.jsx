@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import Hero from '../components/hero'
 import { Home } from '../layouts/basic'
 import Social from '../components/social'
@@ -9,7 +8,7 @@ import { FullCard } from '../components/layout/card'
 import { FaLink } from 'react-icons/all'
 
 export default function RootIndex({ data }) {
-  const [author] = get(data, 'allContentfulPerson.edges')
+  const [author] = data.allContentfulPerson.edges
 
   return (
     <Home>

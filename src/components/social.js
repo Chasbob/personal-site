@@ -1,5 +1,4 @@
 import React from 'react'
-import { get } from 'lodash'
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { graphql, useStaticQuery } from 'gatsby'
 
@@ -14,7 +13,7 @@ export default () => {
       }
     }
   `)
-  const { github, twitter, linkedin, email } = get(data, 'contentfulPerson')
+  const { github, twitter, linkedin, email } = data.contentfulPerson
   let socials = []
   if (github) {
     socials.push(
