@@ -80,5 +80,6 @@ module.exports = {
       options: contentfulConfig,
     },
     'gatsby-transformer-remark',
+    `gatsby-plugin-sitemap`,
   ],
 }
