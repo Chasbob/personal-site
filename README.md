@@ -1,5 +1,7 @@
 # My Site
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1627c6e3-1105-4dd1-b455-8b57cd336249/deploy-status)](https://app.netlify.com/sites/chasbob/deploys)
+
 * [x] Gatsby
 * [x] Contentful
 * [x] A lack of design or aesthetics
