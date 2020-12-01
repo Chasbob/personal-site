@@ -89,6 +89,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://chasbob.dev`,
+      },
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-offline`,
