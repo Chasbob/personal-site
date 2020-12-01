@@ -116,7 +116,7 @@ export default function SEO({ title, description }) {
   return (
     <Helmet
       title={title}
-      titleTemplate={`${site.siteMetadata.name} | %s`}
+      titleTemplate={`%s | ${site.siteMetadata.name}`}
       defaultTitle={site.siteMetadata.name}
       meta={metas}
       link={links}
