@@ -10,15 +10,17 @@ export default () => {
         siteMetadata {
           title
           name
-          nav {
-            name
-            path
-          }
+        }
+      }
+      allNavYaml {
+        nodes {
+          name
+          path
         }
       }
     }
   `)
-  const items = data.site.siteMetadata.nav
+  const items = data.allNavYaml.nodes
   const title = data.site.siteMetadata.name
 
   const handleToggle = () => {

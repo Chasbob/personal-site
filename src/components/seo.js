@@ -5,7 +5,7 @@ import { useLocation } from '@reach/router'
 
 export default function SEO({ title, description }) {
   const { path } = useLocation()
-  const { site } = useStaticQuery(
+  const { site, dataYaml } = useStaticQuery(
     graphql`
       query {
         site {
@@ -19,12 +19,16 @@ export default function SEO({ title, description }) {
             siteUrl
           }
         }
+        dataYaml {
+          keywords
+        }
       }
     `
   )
 
   const metaTitle = title || site.siteMetadata.title
   const metaDescription = description || site.siteMetadata.description
+  const { keywords } = dataYaml
 
   const metas = [
     {
@@ -62,6 +66,10 @@ export default function SEO({ title, description }) {
     {
       name: 'theme-color',
       content: '#e1e1e1',
+    },
+    {
+      name: 'keywords',
+      content: keywords.join(','),
     },
   ]
 
