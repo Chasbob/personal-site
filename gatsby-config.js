@@ -28,34 +28,29 @@ module.exports = {
   siteMetadata: {
     title: 'chasbob',
     name: 'chasbob',
-    description: 'My personal website and ramblings',
+    description: "My personal website | It's all about me!",
     author: {
       name: 'Charles de Freitas',
     },
     siteUrl: 'https://chasbob.dev',
     github: 'https://github.com/chasbob/personal-site',
-    nav: [
-      {
-        name: 'Home',
-        path: '/',
-      },
-      {
-        name: 'Blog',
-        path: '/blog',
-      },
-      {
-        name: 'Portfolio',
-        path: '/portfolio',
-      },
-      {
-        name: 'CV',
-        path: 'https://cv.chasbob.dev',
-      },
-    ],
   },
 
   plugins: [
-    `gatsby-plugin-netlify`,
+    // Source yaml from ./data
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/data/`,
+      },
+    },
+    // Add contentful source
+    {
+      resolve: 'gatsby-source-contentful',
+      options: contentfulConfig,
+    },
+    // PWA manifest
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -72,28 +67,19 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        // Use dart-sass
         implementation: require('sass'),
       },
     },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
-    },
-    'gatsby-transformer-remark',
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
       },
     },
-    `gatsby-plugin-preact`,
     {
       resolve: 'gatsby-plugin-preconnect',
       options: {
@@ -103,5 +89,13 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-yaml`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-preact`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }
