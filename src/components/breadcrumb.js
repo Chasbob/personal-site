@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { FaHome } from 'react-icons/fa'
+import styles from './breadcrumb.module.scss'
 
 export default function Breadcrumb({ location }) {
+  const spanClass = 'mx-2'
   const path = (!!location && location.pathname) || ''
   let parts = []
   parts.push(
@@ -12,7 +14,7 @@ export default function Breadcrumb({ location }) {
         <span className="icon">
           <FaHome />
         </span>
-        <span className="is-family-code">Home</span>
+        <span className={spanClass}>Home</span>
       </Link>
     </li>
   )
@@ -34,14 +36,16 @@ export default function Breadcrumb({ location }) {
                   .slice(0, index + 2)
                   .join('/')}
               >
-                <span className="is-family-code">{part}</span>
+                <span className={spanClass}>{part}</span>
               </Link>
             </li>
           )
         } else {
           return (
             <li key={part}>
-              <span className="mx-2 is-family-code">{part}</span>
+              <span className={`${spanClass} ${styles.currentCrumb}`}>
+                {part}
+              </span>
             </li>
           )
         }
