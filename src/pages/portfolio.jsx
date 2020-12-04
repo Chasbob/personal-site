@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, Section } from '../layouts/basic'
 import style from './portfolio.module.scss'
+import { Section } from '../components/layout/section'
 import Card, {
   CardContent,
   CardHeader,
@@ -18,7 +18,7 @@ export default ({ data, location }) => {
       return acc
     }, {})
   return (
-    <Layout title="portfolio" location={location}>
+    <>
       <Section>
         <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
           Portfolio{' '}
@@ -29,7 +29,7 @@ export default ({ data, location }) => {
         <Category items={categories['projects']} title="projects" />
         <Category items={categories['volunteering']} title="volunteering" />
       </Section>
-    </Layout>
+    </>
   )
 }
 
