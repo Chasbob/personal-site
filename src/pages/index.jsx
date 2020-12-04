@@ -4,7 +4,7 @@ import Hero from '../components/hero'
 import Social from '../components/social'
 import { Columns } from '../components/layout/column'
 import { FullCard } from '../components/layout/card'
-import { FaLink } from 'react-icons/all'
+import { FaLink, FaSpotify, FaGithub } from 'react-icons/all'
 
 export default function RootIndex({ data, location }) {
   const [author] = data.allContentfulPerson.edges
@@ -25,24 +25,26 @@ export default function RootIndex({ data, location }) {
   )
 }
 
-const Spotify = () => (
-  <FullCard
-    title="Currently Vibing to..."
-    icon="🎧"
-    image={
-      <img
-        src="https://novatorem.chasbob.vercel.app/api/spotify"
-        alt="Spotify Playing"
-        width="350"
-      />
-    }
-  />
-)
+const Spotify = () => {
+  return (
+    <FullCard
+      title="Currently Vibing to..."
+      icon={<FaSpotify />}
+      image={
+        <img
+          src="https://novatorem.chasbob.vercel.app/api/spotify"
+          alt="Spotify Playing"
+          width="350"
+        />
+      }
+    />
+  )
+}
 
 const Readme = () => (
   <FullCard
     title="Working on..."
-    icon="💻"
+    icon={<FaGithub />}
     image={
       <img
         src="https://github-readme-stats-six-tau.vercel.app/api?username=chasbob"

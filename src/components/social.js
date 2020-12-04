@@ -1,5 +1,12 @@
 import React from 'react'
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaSpotify,
+} from 'react-icons/fa'
+import { IconContext } from 'react-icons'
 import { graphql, useStaticQuery } from 'gatsby'
 
 export default () => {
@@ -10,10 +17,11 @@ export default () => {
         twitter
         email
         linkedin
+        spotify
       }
     }
   `)
-  const { github, twitter, linkedin, email } = data.contentfulPerson
+  const { github, twitter, linkedin, email, spotify } = data.contentfulPerson
   let socials = []
   if (github) {
     socials.push(
@@ -23,7 +31,9 @@ export default () => {
         href={`https://github.com/${github}`}
       >
         <span className="panel-icon">
-          <FaGithub />
+          <IconContext.Provider value={{ color: '#24292e' }}>
+            <FaGithub />
+          </IconContext.Provider>
         </span>
         GitHub
       </a>
@@ -37,7 +47,9 @@ export default () => {
         href={`https://twitter.com/${twitter}`}
       >
         <span className="panel-icon">
-          <FaTwitter />
+          <IconContext.Provider value={{ color: '#1DA1F2' }}>
+            <FaTwitter />
+          </IconContext.Provider>
         </span>
         Twitter
       </a>
@@ -51,9 +63,27 @@ export default () => {
         href={`https://linkedin.com/in/${linkedin}`}
       >
         <span className="panel-icon">
-          <FaLinkedin />
+          <IconContext.Provider value={{ color: '#2867B2' }}>
+            <FaLinkedin />
+          </IconContext.Provider>
         </span>
         Linkedin
+      </a>
+    )
+  }
+  if (spotify) {
+    socials.push(
+      <a
+        key="spotify"
+        className="panel-block"
+        href={`https://open.spotify.com/user/${spotify}`}
+      >
+        <span className="panel-icon">
+          <IconContext.Provider value={{ color: '#1db954' }}>
+            <FaSpotify />
+          </IconContext.Provider>
+        </span>
+        Spotify
       </a>
     )
   }
