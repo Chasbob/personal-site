@@ -5,17 +5,20 @@ import SEO from '../components/seo'
 import Container from '../components/container'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
-export function Home({ children, title }) {
+export function Home({ children, title, location }) {
   return (
     <>
-      <SEO title={title} />
-      <Navigation />
-      {children}
+      <SEO title={title} location={location} />
+      <div className="site">
+        <Navigation />
+        <div className="site-content">{children}</div>
+        {/* <Footer location={location} /> */}
+      </div>
     </>
   )
 }
 
-export function Layout({ children, title }) {
+export function Layout({ children, title, location }) {
   let rootPath = `/`
   if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
     rootPath = __PATH_PREFIX__ + `/`
@@ -36,14 +39,18 @@ export function Layout({ children, title }) {
   }
 
   return (
-    <SimpleReactLightbox>
-      <SEO title={title} />
-      <Container>
-        <Navigation />
-        <SRLWrapper options={options}>{children}</SRLWrapper>
-      </Container>
-      {/*<Footer location={location} />*/}
-    </SimpleReactLightbox>
+    <>
+      <SEO title={title} location={location} />
+      <div className="site">
+        <SimpleReactLightbox>
+          <Navigation />
+          <div className="site-content">
+            <SRLWrapper options={options}>{children}</SRLWrapper>
+          </div>
+        </SimpleReactLightbox>
+      </div>
+      {/* <Footer location={location} /> */}
+    </>
   )
 }
 

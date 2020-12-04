@@ -7,12 +7,13 @@ import { Columns } from '../components/layout/column'
 import { FullCard } from '../components/layout/card'
 import { FaLink } from 'react-icons/all'
 
-export default function RootIndex({ data }) {
+
+export default function RootIndex({ data, location }) {
   const [author] = data.allContentfulPerson.edges
 
   return (
-    <Home>
-      <div style={{ background: '#fff' }}>
+    <Home location={location}>
+      <div style={{ background: '#ffffff' }}>
         <Hero data={author.node} />
         <section className="section">
           <div className="container">

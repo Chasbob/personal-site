@@ -1,10 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import { useLocation } from '@reach/router'
 
-export default function SEO({ title, description }) {
-  const { path } = useLocation()
+export default function SEO({ title, description, location }) {
+  const path = location.pathname
   const { site, dataYaml } = useStaticQuery(
     graphql`
       query {
