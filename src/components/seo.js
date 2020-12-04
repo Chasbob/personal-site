@@ -68,43 +68,11 @@ export default function SEO({ title, description, location }) {
     },
     {
       name: 'keywords',
-      content: keywords.join(','),
+      content: keywords.join(', '),
     },
   ]
 
-  let links = [
-    {
-      rel: `icon`,
-      type: `image/x-icon`,
-      href: `/icons/favicon.ico`,
-    },
-    {
-      rel: 'apple-touch-icon',
-      sizes: '180x180',
-      href: '/icons/apple-touch-icon.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '32x32',
-      href: '/icons/favicon-32x32.png',
-    },
-    {
-      rel: 'icon',
-      type: 'image/png',
-      sizes: '16x16',
-      href: '/icons/favicon-16x16.png',
-    },
-    {
-      rel: 'manifest',
-      href: '/site.webmanifest',
-    },
-    {
-      rel: 'mask-icon',
-      href: '/icons/safari-pinned-tab.svg',
-      color: '#5bbad5',
-    },
-  ]
+  let links = []
   if (path) {
     links.push({
       href: new URL(path, site.siteMetadata.siteUrl).href,
