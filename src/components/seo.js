@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
 export default function SEO({ title, description, location }) {
-  const path = location.pathname
+  const path = (!!location && location.pathname) || ''
   const { site, dataYaml } = useStaticQuery(
     graphql`
       query {
