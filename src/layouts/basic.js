@@ -3,6 +3,7 @@ import React from 'react'
 import Navigation from '../components/navigation'
 import SEO from '../components/seo'
 import Container from '../components/container'
+import Footer from '../components/footer'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
 export function Home({ children, title, location }) {
@@ -12,7 +13,7 @@ export function Home({ children, title, location }) {
       <div className="site">
         <Navigation />
         <div className="site-content">{children}</div>
-        {/* <Footer location={location} /> */}
+        <Footer location={location} />
       </div>
     </>
   )
@@ -49,7 +50,7 @@ export function Layout({ children, title, location }) {
           </div>
         </SimpleReactLightbox>
       </div>
-      {/* <Footer location={location} /> */}
+      <Footer location={location} />
     </>
   )
 }
