@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, Section } from '../layouts/basic'
+import { Section } from '../components/layout/section'
 import { SRLWrapper } from 'simple-react-lightbox'
 
 export function BlogPostTemplate({ data, location }) {
   const post = data.contentfulBlogPost
   return (
-    <Layout location={location} title={post.title}>
+    <>
       <Section>
         <h1 className="section-headline title is-capitalized">{post.title}</h1>
         <p className="subtitle">{post.publishDate}</p>
@@ -19,7 +19,7 @@ export function BlogPostTemplate({ data, location }) {
           />
         </SRLWrapper>
       </Section>
-    </Layout>
+    </>
   )
 }
 

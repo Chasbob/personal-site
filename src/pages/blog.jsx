@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, Section } from '../layouts/basic'
 import BlogPreview from '../components/blog-preview'
+import { Section } from '../components/layout/section'
 
 export default function Blog({ data, location }) {
   const posts = data.allContentfulBlogPost.edges
   return (
-    <Layout title="blog" location={location}>
+    <>
       <Section>
         <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
           My Blog{' '}
@@ -19,7 +19,7 @@ export default function Blog({ data, location }) {
           })}
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

@@ -1,25 +1,11 @@
 import React from 'react'
-
 import Navigation from '../components/navigation'
 import SEO from '../components/seo'
 import Container from '../components/container'
 import Footer from '../components/footer'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
-export function Home({ children, title, location }) {
-  return (
-    <>
-      <SEO title={title} location={location} />
-      <div className="site">
-        <Navigation />
-        <div className="site-content">{children}</div>
-        <Footer location={location} />
-      </div>
-    </>
-  )
-}
-
-export function Layout({ children, title, location }) {
+export default ({ children, location }) => {
   let rootPath = `/`
   if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
     rootPath = __PATH_PREFIX__ + `/`
@@ -38,10 +24,9 @@ export function Layout({ children, title, location }) {
       showThumbnails: false,
     },
   }
-
   return (
     <>
-      <SEO title={title} location={location} />
+      <SEO location={location} />
       <div className="site">
         <SimpleReactLightbox>
           <Navigation />
@@ -52,17 +37,5 @@ export function Layout({ children, title, location }) {
       </div>
       <Footer location={location} />
     </>
-  )
-}
-
-export function Section({ children }) {
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="columns">
-          <div className="column">{children}</div>
-        </div>
-      </div>
-    </section>
   )
 }
