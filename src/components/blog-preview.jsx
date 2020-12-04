@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { navigate } from '@reach/router'
+import { Link, navigate } from 'gatsby'
 import Img from 'gatsby-image'
 import style from './blog-preview.module.scss'
 

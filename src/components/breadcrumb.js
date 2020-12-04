@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { FaHome } from 'react-icons/fa'
 
 export default function Breadcrumb({ location }) {
-  let path = location.pathname
+  const path = (!!location && location.pathname) || ''
   let parts = []
   parts.push(
     <li key="root">
