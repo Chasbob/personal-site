@@ -92,7 +92,6 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-layout`,
-    `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
