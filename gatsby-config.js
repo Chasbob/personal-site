@@ -78,6 +78,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         printRejected: true, // Print removed selectors and processed file names
+        ignore: ['src/layouts/index.module.scss'],
       },
     },
     {
