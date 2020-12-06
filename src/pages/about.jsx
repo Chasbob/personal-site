@@ -1,19 +1,35 @@
-import React from 'react'
+import React from "react"
+import { graphql } from "gatsby"
 import { Section } from '../components/layout/section'
 
-
-export default () => (
-    <>
-      <Section>
+export default ({
+  data,
+}) => {
+  const { content, name } = data.contentfulPage
+  const { childMarkdownRemark } = content
+  return (
+    <Section>
         <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
-          About{' '}
+          {name}
         </h1>
+
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }}
+        />
       </Section>
-      <Section>
-        <p className='content'>
-        This site was built with Gatsbyjs, styled (mostly) with bulma and backed by Contentful.
-        You can see the source code here on GitHub.
-        </p>
-        </Section>
-    </>
-)
+  )
+}
+
+export const pageQuery = graphql`
+  {
+    contentfulPage {
+      name
+      content {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+  }
+`

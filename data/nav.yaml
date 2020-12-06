@@ -1,3 +1,4 @@
+---
 - name: 'Home'
   path: '/'
 - name: 'Blog'
@@ -8,3 +9,5 @@
   path: '/about'
 - name: 'CV'
   path: 'https://cv.chasbob.dev'
+- name: 'About'
+  path: '/about'
