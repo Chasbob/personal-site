@@ -4,5 +4,7 @@
   path: '/blog'
 - name: 'Portfolio'
   path: '/portfolio'
+- name: 'About'
+  path: '/about'
 - name: 'CV'
   path: 'https://cv.chasbob.dev'
