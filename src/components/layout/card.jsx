@@ -1,7 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import { ChildWrapper } from '../helper'
-import style from './card.module.css'
+import style from './card.module.scss'
 
 export const FullCard = ({ title, icon, image, children, fill }) => (
   <div className={`card ${!!fill && style.cardFill}`}>

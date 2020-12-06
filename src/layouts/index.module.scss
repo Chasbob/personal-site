@@ -1,0 +1,23 @@
+$timeout: 300;
+.defaultStyle {
+  //position: absolute;
+  width: 100vw;
+  transition: opacity #{$timeout}ms ease-in-out;
+  opacity: 0;
+}
+
+.entering {
+  opacity: 0.1;
+}
+
+.entered {
+  opacity: 1;
+}
+
+.exiting {
+  opacity: 0.01;
+}
+
+.exited {
+  opacity: 0.01;
+}

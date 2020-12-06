@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './hero.module.css'
+import styles from './hero.module.scss'
 
 export default ({ data }) => (
   <section className="hero is-medium is-primary is-bold">

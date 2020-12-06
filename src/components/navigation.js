@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export default () => {
   const [active, setActive] = useState(false)
@@ -102,9 +101,7 @@ function NavStart({ items, handleClick }) {
         if (item.path[0] === '/') {
           // internal links get the link component
           return (
-            <AniLink
-              fade
-              duration={0.5}
+            <Link
               to={item.path}
               key={index}
               className="navbar-item"
@@ -112,7 +109,7 @@ function NavStart({ items, handleClick }) {
               onClick={handleClick}
             >
               {item.name}
-            </AniLink>
+            </Link>
           )
         } else {
           // external links just get the normal anchor tag
