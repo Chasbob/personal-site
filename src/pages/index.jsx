@@ -3,10 +3,14 @@ import { graphql } from 'gatsby'
 import Hero from '../components/hero'
 import Social from '../components/social'
 import { Columns } from '../components/layout/column'
-import { FullCard } from '../components/layout/card'
-import { FaLink, FaSpotify, FaGithub } from 'react-icons/all'
+import Card, {
+  CardContent,
+  CardHeader,
+  CardImage,
+} from '../components/layout/card'
+import { FaGithub, FaLink, FaSpotify } from 'react-icons/all'
 
-export default function RootIndex({ data, location }) {
+export default function RootIndex({ data }) {
   const [author] = data.allContentfulPerson.edges
 
   return (
@@ -27,39 +31,44 @@ export default function RootIndex({ data, location }) {
 
 const Spotify = () => {
   return (
-    <FullCard
-      title="Currently Vibing to..."
-      icon={<FaSpotify />}
-      image={
-        <img
-          src="https://novatorem.chasbob.vercel.app/api/spotify"
-          alt="Spotify Playing"
-          width="350"
-        />
-      }
-    />
+    <Card fill>
+      <CardHeader title="Currently Vibing to..." icon={<FaSpotify />} />
+      <CardImage
+        image={
+          <img
+            src="https://novatorem.chasbob.vercel.app/api/spotify"
+            alt="Spotify Playing"
+            width="350"
+          />
+        }
+      />
+    </Card>
   )
 }
 
 const Readme = () => (
-  <FullCard
-    title="Working on..."
-    icon={<FaGithub />}
-    image={
-      <img
-        src="https://github-readme-stats-six-tau.vercel.app/api?username=chasbob"
-        alt="Github stats"
-        width="350"
-      />
-    }
-  />
+  <Card fill>
+    <CardHeader title="Working on..." icon={<FaGithub />} />
+    <CardImage
+      image={
+        <img
+          src="https://github-readme-stats-six-tau.vercel.app/api?username=chasbob"
+          alt="Github stats"
+          width="350"
+        />
+      }
+    />
+  </Card>
 )
 
 function SocialCard() {
   return (
-    <FullCard title="Links" icon={<FaLink />}>
-      <Social />
-    </FullCard>
+    <Card fill>
+      <CardHeader title="Links" icon={<FaLink />} />
+      <CardContent>
+        <Social />
+      </CardContent>
+    </Card>
   )
 }
 
@@ -77,16 +86,6 @@ export const pageQuery = graphql`
         node {
           name
           title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid
-            }
-          }
         }
       }
     }
