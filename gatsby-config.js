@@ -60,7 +60,7 @@ module.exports = {
         icon: 'static/favicon.png',
         background_color: `#5496ec`,
         theme_color: `#6f8dc6`,
-        display: `standalone`,
+        display: `minimal-ui`,
         lang: 'en',
         icon_options: {
           purpose: `any maskable`,
