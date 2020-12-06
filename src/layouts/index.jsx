@@ -1,9 +1,13 @@
 import React from 'react'
 import Navigation from '../components/navigation'
 import SEO from '../components/seo'
-import Container from '../components/container'
 import Footer from '../components/footer'
-import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
+import SimpleReactLightbox from 'simple-react-lightbox'
+import styles from './index.module.scss'
+import {
+  Transition as ReactTransition,
+  TransitionGroup,
+} from 'react-transition-group'
 
 export default ({ children, location }) => {
   let rootPath = `/`
@@ -16,10 +20,25 @@ export default ({ children, location }) => {
       <div className="site">
         <SimpleReactLightbox>
           <Navigation />
-          <div className="site-content">{children}</div>
+          <Transition location={location}>
+            <div className="site-content">{children}</div>
+          </Transition>
         </SimpleReactLightbox>
       </div>
       <Footer location={location} />
     </>
   )
 }
+
+const timeout = 300
+const Transition = ({ children, location }) => (
+  <TransitionGroup>
+    <ReactTransition key={location.pathname} timeout={timeout}>
+      {(status) => (
+        <div className={`${styles.defaultStyle} ${styles[status]}`}>
+          {children}
+        </div>
+      )}
+    </ReactTransition>
+  </TransitionGroup>
+)
