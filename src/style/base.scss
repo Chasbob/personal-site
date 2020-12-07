@@ -9,6 +9,15 @@ $modal-content-width: 1200px;
 $navbar-burger-color: inherit;
 $card-radius: 0.5rem;
 
+$footer-padding: 3rem 1.5rem 3rem;
+@import '~bulmaswatch/yeti/variables';
+@import '~bulma/bulma';
+@import '~bulmaswatch/yeti/overrides';
+$navbar-breakpoint: $tablet;
+
+@import 'nav';
+@import 'card';
+
 html {
   scroll-behavior: smooth;
 }
@@ -17,16 +26,9 @@ html {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: $white;
 }
 
 .site-content {
   flex-grow: 1;
 }
-
-$footer-padding: 3rem 1.5rem 3rem;
-@import '~bulmaswatch/yeti/variables';
-@import '~bulma/bulma';
-@import '~bulmaswatch/yeti/overrides';
-
-@import 'nav';
-@import 'card';
