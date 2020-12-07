@@ -67,14 +67,12 @@ function NavBrand({ active, onToggle }) {
       <a
         className="navbar-item is-transparent is-button is-static"
         onClick={() => {
-          onToggle()
           navigate('/')
         }}
       >
         <FaCode />
       </a>
       <a
-        onClick={onToggle}
         role="button"
         className={`navbar-burger ${active ? 'is-active' : ''}`}
         aria-label="menu"
