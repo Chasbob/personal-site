@@ -17,15 +17,15 @@ export default ({ children, location }) => {
   return (
     <>
       <SEO location={location} />
-      <div className="site">
-        <SimpleReactLightbox>
-          <Navigation />
-          <Transition location={location}>
+      <SimpleReactLightbox>
+        <Navigation />
+        <Transition location={location}>
+          <div className="site">
             <div className="site-content">{children}</div>
-          </Transition>
-        </SimpleReactLightbox>
-      </div>
-      <Footer location={location} />
+            <Footer location={location} />
+          </div>
+        </Transition>
+      </SimpleReactLightbox>
     </>
   )
 }
