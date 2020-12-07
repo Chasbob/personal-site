@@ -2,7 +2,6 @@ import React from 'react'
 import Navigation from '../components/navigation'
 import SEO from '../components/seo'
 import Footer from '../components/footer'
-import SimpleReactLightbox from 'simple-react-lightbox'
 import styles from './index.module.scss'
 import {
   Transition as ReactTransition,
@@ -17,15 +16,13 @@ export default ({ children, location }) => {
   return (
     <>
       <SEO location={location} />
-      <SimpleReactLightbox>
-        <Navigation />
-        <Transition location={location}>
-          <div className="site">
-            <div className="site-content">{children}</div>
-            <Footer location={location} />
-          </div>
-        </Transition>
-      </SimpleReactLightbox>
+      <Navigation />
+      <Transition location={location}>
+        <div className="site">
+          <div className="site-content">{children}</div>
+          <Footer location={location} />
+        </div>
+      </Transition>
     </>
   )
 }

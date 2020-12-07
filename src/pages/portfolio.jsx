@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import style from './portfolio.module.scss'
 import { Section } from '../components/layout/section'
-import { SRLWrapper } from 'simple-react-lightbox'
 import Card, {
   CardContent,
   CardHeader,
@@ -49,20 +48,6 @@ const Category = ({ items, title }) =>
   )
 
 const Item = ({ title, link, image, role, description }) => {
-  const options = {
-    buttons: {
-      showAutoplayButton: false,
-      showCloseButton: true,
-      showDownloadButton: false,
-      showFullscreenButton: true,
-      showNextButton: false,
-      showPrevButton: false,
-      showThumbnailsButton: false,
-    },
-    thumbnails: {
-      showThumbnails: false,
-    },
-  }
   return (
     <div className={style.gridItem}>
       <Card className={`tile is-child ${style.card}`} key={title}>
@@ -73,9 +58,7 @@ const Item = ({ title, link, image, role, description }) => {
             </a>
           }
         />
-        <SRLWrapper options={options}>
-          <CardImage image={image.fluid} fluid />
-        </SRLWrapper>
+        <CardImage image={image.fluid} fluid />
         <CardContent>
           <h1 className="is-text has-text-weight-bold">{role}</h1>
           <p className="is-text has-text-weight-light">{description}</p>
