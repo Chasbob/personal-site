@@ -1,23 +1,21 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
 import { Section } from '../components/layout/section'
 
-export default ({
-  data,
-}) => {
+export default ({ data }) => {
   const { content, name } = data.contentfulPage
   const { childMarkdownRemark } = content
   return (
     <Section>
-        <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
-          {name}
-        </h1>
+      <h1 className="title is-capitalized has-text-centered is-size-1 is-family-sans-serif">
+        {name}
+      </h1>
 
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }}
-        />
-      </Section>
+      <div
+        className="content"
+        dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }}
+      />
+    </Section>
   )
 }
 

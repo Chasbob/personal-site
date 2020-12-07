@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, Link, useStaticQuery, navigate } from 'gatsby'
+import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
 
 export default () => {
@@ -12,6 +12,12 @@ export default () => {
           name
         }
       }
+      allContentfulPage {
+        nodes {
+          name
+          path
+        }
+      }
       allNavYaml {
         nodes {
           name
@@ -20,8 +26,13 @@ export default () => {
       }
     }
   `)
-  const items = data.allNavYaml.nodes
-  const title = data.site.siteMetadata.name
+  const {
+    site,
+    allNavYaml: { nodes: items },
+    allContentfulPage: { nodes },
+  } = data
+  const title = site.siteMetadata.name
+  const allItems = items.concat(nodes)
 
   const handleToggle = () => {
     setActive(!active)
@@ -30,7 +41,7 @@ export default () => {
     <NavBar sticky={false}>
       <NavBrand active={active} onToggle={handleToggle} title={title} />
       <NavMenu active={active}>
-        <NavStart items={items} />
+        <NavStart items={allItems} />
         <NavEnd />
       </NavMenu>
     </NavBar>

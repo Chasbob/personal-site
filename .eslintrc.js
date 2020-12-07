@@ -12,6 +12,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
   },
   parserOptions: {
+    ecmaVersion: 2020,
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
