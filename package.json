@@ -7,7 +7,6 @@
     "url": "https://github.com/Chasbob/personal-site/issues"
   },
   "dependencies": {
-    "bluebird": "^3.7.2",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-layout": "^1.6.0",
     "gatsby-plugin-manifest": "^2.5.2",
@@ -42,6 +41,7 @@
     "bulmaswatch": "^0.8.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
+    "eslint-plugin-graphql": "^4.0.0",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby": "^2.20.25",
@@ -74,7 +74,7 @@
     "develop": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.jsx' 'src/**/*.md' 'bin/*.js'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write .",
     "build": "gatsby build",
     "serve": "NODE_ENV=production gatsby serve",
     "deploy": "netlify deploy --build --dir public/",
