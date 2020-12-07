@@ -41,7 +41,7 @@ export default () => {
     <NavBar sticky={false}>
       <NavBrand active={active} onToggle={handleToggle} title={title} />
       <NavMenu active={active}>
-        <NavStart items={allItems} />
+        <NavStart items={allItems} handleClick={handleToggle} />
         <NavEnd />
       </NavMenu>
     </NavBar>
@@ -67,6 +67,7 @@ function NavBrand({ active, onToggle }) {
       <a
         className="navbar-item is-transparent is-button is-static"
         onClick={() => {
+          onToggle()
           navigate('/')
         }}
       >
@@ -93,7 +94,7 @@ function NavMenu({ active, children }) {
   )
 }
 
-function NavStart({ items }) {
+function NavStart({ items, handleClick }) {
   return (
     <div className="navbar-start">
       {items.map((item, index) => {
@@ -105,6 +106,7 @@ function NavStart({ items }) {
               key={index}
               className="navbar-item"
               activeClassName="is-active"
+              onClick={handleClick}
             >
               {item.name}
             </Link>
