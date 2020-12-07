@@ -74,6 +74,7 @@ function NavBrand({ active, onToggle }) {
       </a>
       <a
         role="button"
+        onClick={onToggle}
         className={`navbar-burger ${active ? 'is-active' : ''}`}
         aria-label="menu"
         aria-expanded="false"
