@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
+import useClickToggle from '../hooks/useClickToggle'
 
 export default () => {
-  const [active, setActive] = useState(false)
+  const [active, handleActivate] = useClickToggle()
   const data = useStaticQuery(graphql`
     query NavQuery {
       site {
@@ -39,10 +40,9 @@ export default () => {
   }
   return (
     <NavBar sticky={false}>
-      <NavBrand active={active} onToggle={handleToggle} title={title} />
+      <NavBrand active={active} onToggle={handleActivate} title={title} />
       <NavMenu active={active}>
-        <NavStart items={allItems} handleClick={handleToggle} />
-        <NavEnd />
+        <NavStart items={allItems} handleClick={handleActivate} />
       </NavMenu>
     </NavBar>
   )
@@ -65,7 +65,7 @@ function NavBrand({ active, onToggle }) {
   return (
     <div className="navbar-brand">
       <a
-        className="navbar-item is-transparent is-button is-static"
+        className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
           navigate('/')
         }}
