@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { navigate } from 'gatsby'
 import { Section } from '../components/layout/section'
 import styles from './cv.module.scss'
 
 const DefaultTemplate = ({ pageContext }) => {
-  const handleClick = () => navigate('https://cv.chasbob.dev/CV.pdf')
+  const [wide, setWide] = useState(false)
+  const handleClick = () => setWide(!wide)
   const {
     page: {
       name,
@@ -15,13 +16,11 @@ const DefaultTemplate = ({ pageContext }) => {
   } = pageContext
 
   return (
-    <div className={styles.parent}>
-      <div
-        onClick={handleClick}
-        className={`is-clickable ${styles.content}`}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    </div>
+    <div
+      onClick={handleClick}
+      className={`is-clickable ${styles.wide} ${(wide && styles.narrow) || ''}`}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   )
 }
 
