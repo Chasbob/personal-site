@@ -1,9 +1,14 @@
 @import '~bulma/sass/utilities/_all';
-.wide {
+
+.cv {
+  transition: width 0.2s;
   display: block;
-  cursor: zoom-out;
   justify-content: center;
   align-items: center;
+  cursor: zoom-in !important;
+  margin-left: auto;
+  margin-right: auto;
+
   p {
     img {
       width: 100%;
@@ -14,20 +19,21 @@
   }
 }
 
+@include tablet {
+  .cv {
+    width: 70vw;
+  }
+}
+
 @include desktop {
-  .narrow {
-    cursor: zoom-in !important;
-    margin-left: auto;
-    margin-right: auto;
+  .cv {
     width: 50vw;
   }
 }
 
-@include tablet {
-  .narrow {
-    cursor: zoom-in !important;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70vw;
-  }
+.narrow {
+  cursor: zoom-out !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
 }

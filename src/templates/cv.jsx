@@ -18,7 +18,7 @@ const DefaultTemplate = ({ pageContext }) => {
   return (
     <div
       onClick={handleClick}
-      className={`${styles.wide} ${(wide && styles.narrow) || ''}`}
+      className={`${styles.cv} ${(wide && styles.narrow) || ''}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   )
