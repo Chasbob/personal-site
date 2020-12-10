@@ -12,8 +12,7 @@ $footer-padding: 3rem 1.5rem 3rem;
 $family-sans-serif: 'Work Sans', sans-serif;
 $family-primary: 'Work Sans', sans-serif;
 
-$navbar-breakpoint: $tablet - 10 * $gap;
-
+$navbar-breakpoint: 400px + 2 * $gap;
 @import '~bulma/bulma';
 
 @import '~bulmaswatch/yeti/overrides';
@@ -25,9 +24,19 @@ html {
   scroll-behavior: smooth;
 }
 
-@media screen and(min-width: $navbar-breakpoint) and (max-width: $desktop - 1) {
-  .navbar > .container > .navbar-brand {
-    padding-left: $gap;
+@media screen and (max-width: $navbar-breakpoint - 1) {
+  .navbar > .container {
+    overflow-x: hidden;
+    width: 100vw;
+  }
+}
+@include touch {
+  @media screen and (min-width: $navbar-breakpoint) {
+    .navbar > .container {
+      padding-left: 22.5px;
+      padding-right: 22.5px;
+      overflow: hidden;
+    }
   }
 }
 

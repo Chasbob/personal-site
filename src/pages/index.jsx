@@ -14,7 +14,7 @@ export default function RootIndex({ data }) {
   const [author] = data.allContentfulPerson.edges
 
   return (
-    <div style={{ background: '#ffffff' }}>
+    <>
       <Hero data={author.node} />
       <section className="section">
         <div className="container">
@@ -25,7 +25,7 @@ export default function RootIndex({ data }) {
           </Columns>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 
