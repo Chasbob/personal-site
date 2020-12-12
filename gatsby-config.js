@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const siteUrl = process.env.DEPLOY_URL || 'https://chasbob.dev'
+
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
@@ -32,7 +34,7 @@ module.exports = {
     author: {
       name: 'Charles de Freitas',
     },
-    siteUrl: 'https://chasbob.dev',
+    siteUrl: siteUrl,
     github: 'https://github.com/chasbob/personal-site',
   },
 
