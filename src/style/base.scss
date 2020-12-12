@@ -5,46 +5,29 @@
 
 @import '~bulma/sass/utilities/initial-variables.sass';
 @import '~bulmaswatch/yeti/variables';
-
-$card-radius: 0.5rem;
-$footer-padding: 3rem 1.5rem 3rem;
+@import 'bulma/sass/utilities/_all.sass';
 
 $family-sans-serif: 'Work Sans', sans-serif;
 $family-primary: 'Work Sans', sans-serif;
 
-$navbar-breakpoint: 400px + 2 * $gap;
+@import 'card';
+@import 'footer';
+@import 'nav';
+@import 'box';
+
 @import '~bulma/bulma';
 
 @import '~bulmaswatch/yeti/overrides';
 
-@import 'nav';
-@import 'card';
-
 html {
   scroll-behavior: smooth;
-}
-
-@media screen and (max-width: $navbar-breakpoint - 1) {
-  .navbar > .container {
-    overflow-x: hidden;
-    width: 100vw;
-  }
-}
-@include touch {
-  @media screen and (min-width: $navbar-breakpoint) {
-    .navbar > .container {
-      padding-left: 22.5px;
-      padding-right: 22.5px;
-      overflow: hidden;
-    }
-  }
 }
 
 .site {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-color: $background;
+  background-color: #efefef;
 }
 
 .site-content {
