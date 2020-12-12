@@ -2,7 +2,10 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const siteUrl = process.env.DEPLOY_URL || 'https://chasbob.dev'
+const siteUrl =
+  process.env.DEPLOY_PRIME_URL ||
+  process.env.DEPLOY_URL ||
+  'https://chasbob.dev'
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
