@@ -90,6 +90,12 @@ export default function SEO({ title, description, location }) {
       htmlAttributes={{
         lang: 'en',
       }}
-    />
+    >
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "f89c64f1c48e416ab9614f14f862af63"}'
+      ></script>
+    </Helmet>
   )
 }
