@@ -82,6 +82,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Work Sans'],
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-preconnect',
       options: {
         domains: [
