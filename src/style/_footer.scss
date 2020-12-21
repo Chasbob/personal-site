@@ -1,2 +1,6 @@
 $footer-color: true;
 $footer-padding: 3rem 1.5rem 3rem;
+
+@import '~bulma/sass/components/level.sass';
+@import '~bulma/sass/components/breadcrumb.sass';
+@import '~bulma/sass/layout/footer.sass';

@@ -1,5 +1,7 @@
 $card-radius: 1rem;
 
+@import '~bulma/sass/components/card';
+
 .card {
   max-width: inherit;
   max-height: fit-content;

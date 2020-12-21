@@ -3,6 +3,8 @@
 @import '~bulma/sass/utilities/initial-variables.sass';
 @import '~bulmaswatch/yeti/variables';
 @import 'bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/layout/_all.sass';
+@import '~bulma/sass/base/_all.sass';
 
 $family-sans-serif: 'Work Sans', sans-serif;
 $family-primary: 'Work Sans', sans-serif;
@@ -12,7 +14,11 @@ $family-primary: 'Work Sans', sans-serif;
 @import 'nav';
 @import 'box';
 
-@import '~bulma/bulma';
+@import '~bulma/sass/elements/title.sass';
+@import '~bulma/sass/elements/container.sass';
+@import '~bulma/sass/elements/content.sass';
+
+@import '~bulma/sass/components/panel.sass';
 
 @import '~bulmaswatch/yeti/overrides';
 

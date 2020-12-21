@@ -1,4 +1,8 @@
 $navbar-breakpoint: 400px + 2 * $gap;
+
+@import '~bulma/sass/components/navbar.sass';
+@import '~bulma/sass/layout/hero.sass';
+
 nav.navbar {
   border-radius: 0;
   &.is-sticky-custom {
