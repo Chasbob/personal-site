@@ -1,3 +1,12 @@
 $box-radius: 1rem;
 
 @import '~bulma/sass/elements/box.sass';
+
+@media (prefers-color-scheme: dark) {
+  .box {
+    background-color: $grey-dark;
+    a {
+      @include prefer-dark-text;
+    }
+  }
+}
