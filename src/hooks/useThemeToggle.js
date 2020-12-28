@@ -38,5 +38,5 @@ export default function useThemeToggle() {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
-  return [handleClick]
+  return [theme, handleClick]
 }
