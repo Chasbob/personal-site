@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { ColorUpdater } from 'bulma-css-vars'
-import { bulmaCssVariablesDefs } from '../bulma-generated/bulma-colors'
 
 export default function useThemeToggle() {
   const flip = (inp) => (inp === 'dark' && 'light') || 'dark'
