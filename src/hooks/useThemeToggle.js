@@ -3,18 +3,15 @@ import { useState, useEffect } from 'react'
 export default function useThemeToggle() {
   const flip = (inp) => (inp === 'dark' && 'light') || 'dark'
   const [theme, setTheme] = useState(() => {
-    const prefersDark =
-      (window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark') ||
-      'light'
     try {
       // Get from local storage by key
       const item = window.localStorage.getItem('theme')
       // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : prefersDark
+      return item ? JSON.parse(item) : 'light'
     } catch (error) {
       // If error also return initialValue
       console.log(error)
-      return prefersDark
+      return 'light'
     }
   })
   const setValue = (value) => {
