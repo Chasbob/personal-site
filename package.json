@@ -42,6 +42,7 @@
     "@babel/plugin-transform-react-jsx-source": "^7.12.1",
     "babel-eslint": "^10.1.0",
     "bulma": "^0.9.1",
+    "bulma-css-vars": "^0.5.6",
     "bulmaswatch": "^0.8.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.15.0",
@@ -84,7 +85,8 @@
     "deploy": "netlify deploy --build --dir public/",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "clean": "gatsby clean",
-    "lighthouse": "lighthouse http://localhost:9000 --view"
+    "lighthouse": "lighthouse http://localhost:9000 --view",
+    "update-bulma-colors": "bulma-css-vars"
   },
   "husky": {
     "hooks": {

@@ -58,8 +58,8 @@ module.exports = {
         short_name: `chasbob`,
         start_url: `/`,
         icon: 'static/favicon.png',
-        background_color: `#5496ec`,
-        theme_color: `#6f8dc6`,
+        background_color: `#375a7f`,
+        theme_color: `#375a7f`,
         display: `standalone`,
         lang: 'en',
         icon_options: {

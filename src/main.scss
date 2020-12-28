@@ -1,0 +1,24 @@
+@import './bulma-generated/light/generated-fallback.css';
+@import './bulma-generated/light/generated-bulma-vars.sass';
+
+//@import './bulma-generated/dark/generated-fallback.css';
+@import './bulma-generated/dark/generated-bulma-vars.sass';
+
+@import '../node_modules/bulma-css-vars/bulma-cv-lib';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  //@media (prefers-color-scheme: dark) {
+  //  background-color: $grey-darker;
+  //}
+}
+
+.site-content {
+  flex-grow: 1;
+}
