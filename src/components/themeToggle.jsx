@@ -8,17 +8,13 @@ export default () => {
   const [theme, toggleTheme] = useThemeToggle()
   let colour
   let icon
-  let light
   if (theme === 'light') {
-    light = true
     icon = <FaSun key="sun" />
     colour = 'warning'
   } else {
-    light = false
     colour = 'dark'
     icon = <FaMoon key="moon" />
   }
-  console.log(theme)
 
   return (
     <button className={`button is-${colour}`} onClick={toggleTheme}>
