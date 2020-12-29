@@ -2,18 +2,7 @@ import { useState, useEffect } from 'react'
 
 export default function useThemeToggle() {
   const flip = (inp) => (inp === 'dark' && 'light') || 'dark'
-  const [theme, setTheme] = useState(() => {
-    try {
-      // Get from local storage by key
-      const item = window.localStorage.getItem('theme')
-      // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : 'light'
-    } catch (error) {
-      // If error also return initialValue
-      console.log(error)
-      return 'light'
-    }
-  })
+  const [theme, setTheme] = useState('light')
   const setValue = (value) => {
     try {
       // Allow value to be a function so we have same API as useState
@@ -27,6 +16,21 @@ export default function useThemeToggle() {
       console.log(error)
     }
   }
+
+  useEffect(function mount() {
+    try {
+      // Get from local storage by key
+      const item = window.localStorage.getItem('theme')
+      // Parse stored json or if none return initialValue
+      setTheme(item ? JSON.parse(item) : 'light')
+    } catch (error) {
+      // If error also return initialValue
+      console.log(error)
+      setTheme('light')
+      // return 'light'
+    }
+    return function unMount() {}
+  }, [])
 
   const handleClick = (event) => {
     setValue(flip(theme))
