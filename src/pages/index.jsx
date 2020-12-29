@@ -8,7 +8,7 @@ import Card, {
   CardHeader,
   CardImage,
 } from '../components/layout/card'
-import { FaGithub, FaLink, FaSpotify } from 'react-icons/all'
+import { FaGithub, FaLink, FaSpotify } from 'react-icons/fa'
 
 export default function RootIndex({ data }) {
   const [author] = data.allContentfulPerson.edges

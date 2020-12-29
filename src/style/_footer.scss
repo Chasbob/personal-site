@@ -1,2 +1,21 @@
 $footer-color: true;
 $footer-padding: 3rem 1.5rem 3rem;
+
+@import '~bulma/sass/components/level.sass';
+@import '~bulma/sass/components/breadcrumb.sass';
+@import '~bulma/sass/layout/footer.sass';
+
+.footer {
+  @include prefer-dark-text;
+}
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background-color: $grey-darker;
+    // color: invert($text);
+  }
+  .breadcrumb {
+    a:hover {
+      color: invert($link);
+    }
+  }
+}

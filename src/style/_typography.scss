@@ -1,0 +1,24 @@
+$title-color: #fff;
+$subtitle-color: $grey-light;
+$subtitle-strong-color: $grey-light;
+
+.title {
+  @include prefer-dark-text;
+}
+
+a {
+  .title {
+    @include prefer-dark-text;
+  }
+}
+.content {
+  @include prefer-dark-text;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include prefer-dark-text;
+  }
+}

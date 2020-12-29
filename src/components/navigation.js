@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
 import useClickToggle from '../hooks/useClickToggle'
+import ThemeToggle from './themeToggle'
 
 export default () => {
   const [active, handleActivate] = useClickToggle()
@@ -43,6 +44,9 @@ export default () => {
       <NavBrand active={active} onToggle={handleActivate} title={title} />
       <NavMenu active={active}>
         <NavStart items={allItems} handleClick={handleActivate} />
+        <NavEnd>
+          <ThemeToggle />
+        </NavEnd>
       </NavMenu>
     </NavBar>
   )

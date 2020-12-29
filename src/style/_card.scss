@@ -1,8 +1,28 @@
 $card-radius: 1rem;
 
+@import '~bulma/sass/components/card';
+
 .card {
   max-width: inherit;
   max-height: fit-content;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
   height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: $text;
+    a {
+      color: invert($text);
+      &:hover {
+        color: $text;
+      }
+    }
+    .card-header-title {
+      color: invert($text);
+    }
+    .card-content {
+      color: invert($text);
+    }
+  }
 }

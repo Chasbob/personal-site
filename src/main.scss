@@ -1,0 +1,23 @@
+$family-sans-serif: 'Work Sans', sans-serif;
+$family-primary: 'Work Sans', sans-serif;
+@import './bulma-generated/light/generated-fallback.css';
+@import './bulma-generated/light/generated-bulma-vars.sass';
+
+//@import './bulma-generated/dark/generated-fallback.css';
+@import './bulma-generated/dark/generated-bulma-vars.sass';
+
+@import '../node_modules/bulma-css-vars/bulma-cv-lib';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex-grow: 1;
+}
