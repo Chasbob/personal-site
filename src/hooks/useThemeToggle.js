@@ -5,12 +5,17 @@ export default function useThemeToggle() {
   const [theme, setTheme] = useState(() => {
     try {
       // Get from local storage by key
-      const item = window.localStorage.getItem('theme')
+      let item
+      if (typeof window !== 'undefined') {
+        item = window.localStorage.getItem('theme')
+      } else {
+        item = 'light'
+      }
       // Parse stored json or if none return initialValue
       return item ? JSON.parse(item) : 'light'
     } catch (error) {
       // If error also return initialValue
-      console.log(error)
+      // console.log(error)
       return 'light'
     }
   })
