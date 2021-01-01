@@ -11,7 +11,9 @@ import Card, {
 import { FaGithub, FaLink, FaSpotify } from 'react-icons/fa'
 
 export default function RootIndex({ data }) {
-  const [author] = data.allContentfulPerson.edges
+  const { allContentfulPerson } = data
+  const { edges } = allContentfulPerson
+  const [author] = edges
 
   return (
     <>

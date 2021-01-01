@@ -6,7 +6,6 @@ const DefaultTemplate = ({ pageContext }) => {
   const handleClick = () => setWide(!wide)
   const {
     page: {
-      name,
       content: {
         childMarkdownRemark: { html },
       },

@@ -21,7 +21,8 @@ export default () => {
       }
     }
   `)
-  const { github, twitter, linkedin, email, spotify } = data.contentfulPerson
+  const { contentfulPerson } = data
+  const { github, twitter, linkedin, email, spotify } = contentfulPerson
   let socials = []
   if (github) {
     socials.push(

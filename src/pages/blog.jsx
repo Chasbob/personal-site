@@ -3,8 +3,9 @@ import { graphql } from 'gatsby'
 import BlogPreview from '../components/blog-preview'
 import { Section } from '../components/layout/section'
 
-export default function Blog({ data, location }) {
-  const posts = data.allContentfulBlogPost.edges
+export default function Blog({ data }) {
+  const { allContentfulBlogPost } = data
+  const { edges } = allContentfulBlogPost
   return (
     <>
       <Section>
@@ -14,7 +15,7 @@ export default function Blog({ data, location }) {
       </Section>
       <section className="section">
         <div className="container">
-          {posts.map(({ node }) => {
+          {edges.map(({ node }) => {
             return <BlogPreview article={node} key={node.slug} />
           })}
         </div>

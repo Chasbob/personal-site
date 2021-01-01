@@ -1,5 +1,7 @@
 $family-sans-serif: 'Work Sans', sans-serif;
 $family-primary: 'Work Sans', sans-serif;
+$box-radius: 1rem;
+$card-radius: 1rem;
 @import './bulma-generated/light/generated-fallback.css';
 @import './bulma-generated/light/generated-bulma-vars.sass';
 
@@ -20,4 +22,11 @@ html {
 
 .site-content {
   flex-grow: 1;
+}
+
+.card {
+  max-width: inherit;
+  max-height: fit-content;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  height: 100%;
 }
