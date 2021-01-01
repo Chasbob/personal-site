@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Section } from '../components/layout/section'
-import styles from './blog-post.module.scss'
 
-export function BlogPostTemplate({ data, location }) {
+export function BlogPostTemplate({ data }) {
   const post = data.contentfulBlogPost
   return (
     <>

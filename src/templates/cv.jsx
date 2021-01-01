@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { navigate } from 'gatsby'
-import { Section } from '../components/layout/section'
 import styles from './cv.module.scss'
 
 const DefaultTemplate = ({ pageContext }) => {

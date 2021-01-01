@@ -2,8 +2,6 @@ import React from 'react'
 import SEO from './seo'
 import Container from './container'
 import Navigation from './navigation'
-import Footer from './footer'
-import base from '../style/base.scss'
 
 export default ({ children, title }) => {
   let rootPath = `/`

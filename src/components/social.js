@@ -3,8 +3,8 @@ import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaSpotify,
+  FaTwitter,
 } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { graphql, useStaticQuery } from 'gatsby'

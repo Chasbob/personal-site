@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
 import useClickToggle from '../hooks/useClickToggle'
