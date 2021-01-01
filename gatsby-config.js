@@ -100,6 +100,60 @@ module.exports = {
         precachePages: [`/about/`, `/blog/*`],
       },
     },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                return Object.assign(
+                  {},
+                  {
+                    title: node.title,
+                    description: node.description.childMarkdownRemark.excerpt,
+                    date: node.publishDate,
+                    url: site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
+                    guid:
+                      site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
+                  }
+                )
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost(sort: {fields: publishDate, order: DESC}) {
+                  nodes {
+                    slug
+                    title
+                    publishDate
+                    description {
+                      childMarkdownRemark {
+                        excerpt(format: PLAIN)
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: "Charlie's RSS Feed",
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
