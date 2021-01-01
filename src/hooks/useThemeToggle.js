@@ -3,20 +3,25 @@ import { useState, useEffect } from 'react'
 export default function useThemeToggle() {
   const flip = (inp) => (inp === 'dark' && 'light') || 'dark'
   const [theme, setTheme] = useState(() => {
+    const defaultTheme = 'light'
     try {
-      // Get from local storage by key
       let item
+      // catch error while gatsby does server side build
       if (typeof window !== 'undefined') {
         item = window.localStorage.getItem('theme')
+        // if the user has a stored preference then us it
+        // else use prefers-color-scheme query
+        item = item
+          ? JSON.parse(item)
+          : window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
       } else {
-        item = 'light'
+        item = defaultTheme
       }
-      // Parse stored json or if none return initialValue
-      return item ? JSON.parse(item) : 'light'
+      return item
     } catch (error) {
-      // If error also return initialValue
-      // console.log(error)
-      return 'light'
+      return defaultTheme
     }
   })
   const setValue = (value) => {
@@ -28,7 +33,6 @@ export default function useThemeToggle() {
       // Save to local storage
       window.localStorage.setItem('theme', JSON.stringify(valueToStore))
     } catch (error) {
-      // A more advanced implementation would handle the error case
       console.log(error)
     }
   }
