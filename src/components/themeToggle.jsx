@@ -17,7 +17,11 @@ export default () => {
   }
 
   return (
-    <button className={`button is-rounded is-${colour}`} onClick={toggleTheme}>
+    <button
+      className={`button is-rounded is-${colour}`}
+      onClick={toggleTheme}
+      title="Toggle Theme"
+    >
       <span className="icon">{icon}</span>
     </button>
   )
