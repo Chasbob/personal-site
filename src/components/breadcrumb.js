@@ -59,6 +59,6 @@ export default function Breadcrumb({ location }) {
       </nav>
     )
   } else {
-    return <div></div>
+    return <></>
   }
 }

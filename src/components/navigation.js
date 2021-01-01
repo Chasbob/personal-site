@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql, Link, navigate, useStaticQuery } from 'gatsby'
 import { FaCode } from 'react-icons/fa'
 import useClickToggle from '../hooks/useClickToggle'
@@ -36,9 +36,6 @@ export default () => {
   const title = site.siteMetadata.name
   const allItems = items.concat(nodes)
 
-  const handleToggle = () => {
-    setActive(!active)
-  }
   return (
     <NavBar sticky={false}>
       <NavBrand active={active} onToggle={handleActivate} title={title} />
@@ -71,7 +68,7 @@ function NavBrand({ active, onToggle }) {
       <a
         className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
-          navigate('/')
+          navigate('/').then(() => {})
         }}
       >
         <FaCode />

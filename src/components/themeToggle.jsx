@@ -17,8 +17,8 @@ export default () => {
   }
 
   return (
-    <button className={`button is-${colour}`} onClick={toggleTheme}>
-      {icon}
+    <button className={`button is-rounded is-${colour}`} onClick={toggleTheme}>
+      <span className="icon">{icon}</span>
     </button>
   )
 }

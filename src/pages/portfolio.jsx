@@ -8,8 +8,9 @@ import Card, {
   CardImage,
 } from '../components/layout/card'
 
-export default ({ data, location }) => {
-  const portfolio = data.allContentfulPortfolio.edges
+export default ({ data }) => {
+  const { allContentfulPortfolio } = data
+  const { edges: portfolio } = allContentfulPortfolio
   const categories = portfolio
     .map((i) => i.node)
     .reduce((acc, cur) => {

@@ -32,6 +32,7 @@ function LightenDarkenColor(col, amt) {
 function lighten(col, amt) {
   return LightenDarkenColor(col, amt)
 }
+
 function darken(col, amt) {
   return LightenDarkenColor(col, -amt)
 }

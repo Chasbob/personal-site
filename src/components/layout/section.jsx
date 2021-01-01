@@ -1,4 +1,5 @@
 import React from 'react'
+
 export function Section({ children }) {
   return (
     <section className="section">

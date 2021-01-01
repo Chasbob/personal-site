@@ -3,8 +3,8 @@ import {
   FaEnvelope,
   FaGithub,
   FaLinkedin,
-  FaTwitter,
   FaSpotify,
+  FaTwitter,
 } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -21,7 +21,8 @@ export default () => {
       }
     }
   `)
-  const { github, twitter, linkedin, email, spotify } = data.contentfulPerson
+  const { contentfulPerson } = data
+  const { github, twitter, linkedin, email, spotify } = contentfulPerson
   let socials = []
   if (github) {
     socials.push(

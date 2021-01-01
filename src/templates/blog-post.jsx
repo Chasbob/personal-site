@@ -1,10 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Section } from '../components/layout/section'
-import styles from './blog-post.module.scss'
 
-export function BlogPostTemplate({ data, location }) {
-  const post = data.contentfulBlogPost
+export function BlogPostTemplate({ data }) {
+  const { contentfulBlogPost } = data
+  const post = contentfulBlogPost
+  const { childMarkdownRemark } = post.body
+  const { html } = childMarkdownRemark
   return (
     <>
       <Section>
@@ -13,7 +15,7 @@ export function BlogPostTemplate({ data, location }) {
         <div
           className="content"
           dangerouslySetInnerHTML={{
-            __html: post.body.childMarkdownRemark.html,
+            __html: html,
           }}
         />
       </Section>
