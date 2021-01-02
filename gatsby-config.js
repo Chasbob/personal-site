@@ -128,6 +128,10 @@ module.exports = {
                     url: site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
                     guid:
                       site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
+                    // content: node.body.childMarkdownRemark.html,
+                    custom_elements: [
+                      { 'content:encoded': node.body.childMarkdownRemark.html },
+                    ],
                   }
                 )
               })
@@ -142,6 +146,12 @@ module.exports = {
                     description {
                       childMarkdownRemark {
                         excerpt(format: PLAIN)
+                        html
+                      }
+                    }
+                    body {
+                      childMarkdownRemark {
+                        html
                       }
                     }
                   }
