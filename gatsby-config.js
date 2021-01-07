@@ -91,7 +91,33 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        commonmark: true,
+        footnotes: true,
+        pedantic: true,
+        gfm: true,
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 450,
+              withWebp: true,
+              loading: 'lazy',
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {
+              margin: 36,
+              scrollOffset: 0,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-yaml`,
     `gatsby-plugin-layout`,
     {
@@ -128,7 +154,6 @@ module.exports = {
                     url: site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
                     guid:
                       site.siteMetadata.siteUrl + '/blog/' + node.slug + '/',
-                    // content: node.body.childMarkdownRemark.html,
                     custom_elements: [
                       { 'content:encoded': node.body.childMarkdownRemark.html },
                     ],
@@ -168,6 +193,5 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-preact`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }
