@@ -1,5 +1,10 @@
 @import '~bulma/sass/utilities/_all';
 
+.frame {
+  width: 100%;
+  height: 100%;
+}
+
 .cv {
   transition: width 0.2s;
   display: block;
