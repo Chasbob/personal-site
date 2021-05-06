@@ -68,7 +68,7 @@ function NavBrand({ active, onToggle }) {
       <a
         className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
-          navigate('/').then(() => {})
+          navigate('/')
         }}
       >
         <FaCode />
