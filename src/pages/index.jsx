@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Hero from '../components/hero'
 import Social from '../components/social'
 import { Columns } from '../components/layout/column'
+import useThemeToggle from '../hooks/useThemeToggle'
 import Card, {
   CardContent,
   CardHeader,
@@ -14,6 +15,7 @@ export default function RootIndex({ data }) {
   const { allContentfulPerson } = data
   const { edges } = allContentfulPerson
   const [author] = edges
+  const [theme, toggleTheme] = useThemeToggle()
 
   return (
     <>
@@ -22,7 +24,7 @@ export default function RootIndex({ data }) {
         <div className="container">
           <Columns>
             <SocialCard />
-            <Readme />
+            <Readme theme={theme} />
             <Spotify />
           </Columns>
         </div>
@@ -48,13 +50,15 @@ const Spotify = () => {
   )
 }
 
-const Readme = () => (
+const Readme = ({ theme }) => (
   <Card fill>
     <CardHeader title="Working on..." icon={<FaGithub />} />
     <CardImage
       image={
         <img
-          src="https://github-readme-stats-six-tau.vercel.app/api?username=chasbob"
+          src={`https://github-readme-stats-six-tau.vercel.app/api?username=chasbob&count_private=true&hide_rank=true&hide=stars&hide_title=true&hide_border=true${
+            theme === 'dark' ? '&theme=dark' : ''
+          }`}
           alt="Github stats"
           width="350"
         />
