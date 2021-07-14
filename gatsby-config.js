@@ -70,8 +70,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        // Use dart-sass
-        implementation: require('sass'),
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
       },
     },
     {
@@ -91,6 +95,9 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-layout`,

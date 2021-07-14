@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import style from './blog-preview.module.scss'
 
-export default ({ article }) => {
+const BlogPreview = ({ article }) => {
   const location = `/blog/${article.slug}/`
   const handleClick = () => navigate(location)
   return (
@@ -19,7 +19,13 @@ export default ({ article }) => {
       <h3 className="subtitle is-italic has-text-weight-light is-family-sans-serif">
         {article.publishDate}
       </h3>
-      <Img className="mt-3 image" alt={``} fluid={article.heroImage.fluid} />
+      <GatsbyImage
+        image={article.heroImage.gatsbyImageData}
+        className="mt-3 image"
+        alt={``}
+      />
     </div>
   )
 }
+
+export default BlogPreview;
