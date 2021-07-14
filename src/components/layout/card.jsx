@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { ChildWrapper } from '../helper'
 import style from './card.module.scss'
 
@@ -13,7 +13,9 @@ export const FullCard = ({ title, icon, image, children, fill }) => (
 
 export default ({ children, className, fill }) => (
   <div
-    className={`card ${!!fill && style.cardFill} ${!!className && className}`}
+    className={`card ${(!!fill && style.cardFill) || ''} ${
+      (!!className && className) || ''
+    }`}
   >
     {children}
   </div>
@@ -34,7 +36,7 @@ export const CardImage = ({ image, fluid }) => {
   if (!!fluid) {
     return (
       <div className={`card-image`}>
-        <Img className="image" alt={``} fluid={image} />
+        <GatsbyImage image={image} className="image" alt={``} />
       </div>
     )
   }

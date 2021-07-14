@@ -41,9 +41,7 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            fluid(maxWidth: 800, maxHeight: 200, resizingBehavior: FILL) {
-              ...GatsbyContentfulFluid
-            }
+            gatsbyImageData(height: 350, cropFocus: CENTER)
           }
           description {
             childMarkdownRemark {

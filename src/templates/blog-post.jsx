@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Section } from '../components/layout/section'
 
-export function BlogPostTemplate({ data }) {
+function BlogPostTemplate({ data }) {
   const { contentfulBlogPost } = data
   const post = contentfulBlogPost
   const { childMarkdownRemark } = post.body
@@ -35,11 +35,6 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid
-        }
-      }
       body {
         childMarkdownRemark {
           html

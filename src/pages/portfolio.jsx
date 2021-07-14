@@ -8,7 +8,7 @@ import Card, {
   CardImage,
 } from '../components/layout/card'
 
-export default ({ data }) => {
+const Portfolio = ({ data }) => {
   const { allContentfulPortfolio } = data
   const { edges: portfolio } = allContentfulPortfolio
   const categories = portfolio
@@ -33,6 +33,8 @@ export default ({ data }) => {
     </>
   )
 }
+
+export default Portfolio
 
 const Category = ({ items, title }) =>
   !!items && (
@@ -59,7 +61,7 @@ const Item = ({ title, link, image, role, description }) => {
             </a>
           }
         />
-        <CardImage image={image.fluid} fluid />
+        <CardImage image={image.gatsbyImageData} fluid />
         <CardContent>
           <h1 className="is-text has-text-weight-bold">{role}</h1>
           <p className="is-text has-text-weight-light">{description}</p>
@@ -84,6 +86,7 @@ export const pageQuery = graphql`
           category
           link
           image {
+            gatsbyImageData
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid
             }
