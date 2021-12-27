@@ -2,7 +2,7 @@ import React from 'react'
 
 import useThemeToggle from '../hooks/useThemeToggle'
 
-import { FaMoon, FaSun } from 'react-icons/all'
+import { FaMoon, FaSun } from 'react-icons/fa'
 
 export default () => {
   const [theme, toggleTheme] = useThemeToggle()
