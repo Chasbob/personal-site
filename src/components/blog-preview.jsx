@@ -1,14 +1,14 @@
 import React from 'react'
 import { Link, navigate } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import style from './blog-preview.module.scss'
+import {preview} from './blog-preview.module.scss'
 
 const BlogPreview = ({ article }) => {
   const location = `/blog/${article.slug}/`
   const handleClick = () => navigate(location)
   return (
     <div
-      className={`is-clickable box mb-6 ${style.preview}`}
+      className={`is-clickable box mb-6 ${preview}`}
       onClick={handleClick}
     >
       <Link to={location}>
