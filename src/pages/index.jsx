@@ -99,39 +99,17 @@ export async function getServerData() {
       .then((resp) => resp.blob())
       .then((blob) => blob.text())
       .then((txt) => Buffer.from(txt).toString('base64'))
-  try {
-    const stats = await urlToB64(
-      `https://github-readme-stats-six-tau.vercel.app/api?username=chasbob&count_private=true&hide_rank=true&hide=stars&hide_title=true&hide_border=true`
-    )
-    const spotify = await urlToB64(
-      `https://novatorem.chasbob.vercel.app/api/spotify`
-    )
-    return {
-      props: {
-        spotify: spotify,
-        stats: stats,
-      },
-    }
-    const res = await fetch(`https://novatorem.chasbob.vercel.app/api/spotify`)
-    if (!res.ok) {
-      throw new Error(`Response failed`)
-    }
-    // const blob = await res.blob();
-    const blob = await res.blob().then(async (b) => {
-      // const t =
-      const bt = Buffer.from(await b.text()).toString('base64')
-      return bt
-    })
-    return {
-      props: {
-        spotify: blob,
-      },
-    }
-  } catch (error) {
-    return {
-      status: 500,
-      headers: {},
-      props: {},
-    }
+      .catch((err) => Buffer.from(`<span>${err}</span>`).toString('base64'))
+  const stats = await urlToB64(
+    `https://github-readme-stats-six-tau.vercel.app/api?username=chasbob&count_private=true&hide_rank=true&hide=stars&hide_title=true&hide_border=true`
+  )
+  const spotify = await urlToB64(
+    `https://novatorem.chasbob.vercel.app/api/spotify`
+  )
+  return {
+    props: {
+      spotify: spotify,
+      stats: stats,
+    },
   }
 }
