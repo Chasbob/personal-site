@@ -163,7 +163,6 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
