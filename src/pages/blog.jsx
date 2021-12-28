@@ -40,9 +40,6 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM Do, YYYY")
           tags
-          heroImage {
-            gatsbyImageData(height: 350, cropFocus: CENTER)
-          }
           description {
             childMarkdownRemark {
               html
