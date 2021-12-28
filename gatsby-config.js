@@ -67,17 +67,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-sass`,
-      options: {
-        cssLoaderOptions: {
-          esModule: false,
-          modules: {
-            namedExport: false,
-          },
-        },
-      },
-    },
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

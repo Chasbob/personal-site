@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import style from './portfolio.module.scss'
+import { grid, gridItem, card, link } from './portfolio.module.scss'
 import { Section } from '../components/layout/section'
 import Card, {
   CardContent,
@@ -42,7 +42,7 @@ const Category = ({ items, title }) =>
       <h2 className="is-size-2 title is-capitalized is-family-primary">
         {title}
       </h2>
-      <div className={style.grid}>
+      <div className={grid}>
         {items.map((item) => (
           <Item {...item} key={item.title} />
         ))}
@@ -52,11 +52,11 @@ const Category = ({ items, title }) =>
 
 const Item = ({ title, link, image, role, description }) => {
   return (
-    <div className={style.gridItem}>
-      <Card className={`tile is-child ${style.card}`} key={title}>
+    <div className={gridItem}>
+      <Card className={`tile is-child ${card}`} key={title}>
         <CardHeader
           title={
-            <a className={style.link} href={link}>
+            <a className={link} href={link}>
               {title}
             </a>
           }

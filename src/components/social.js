@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { graphql, useStaticQuery } from 'gatsby'
-import {invert} from './social.module.scss';
+import { invert } from './social.module.scss'
 import useThemeToggle from '../hooks/useThemeToggle'
 
 const Social = () => {
@@ -16,7 +16,6 @@ const Social = () => {
   const [ghColour, setGhColour] = useState('#dbd6d1')
   useCallback(() => {
     setGhColour(theme === 'light' ? '#24292e' : '#dbd6d1')
-
   }, [theme, setGhColour])
   const data = useStaticQuery(graphql`
     query SocialQuery {
@@ -110,4 +109,4 @@ const Social = () => {
   return <nav className="panel mt-3">{socials}</nav>
 }
 
-export default Social;
+export default Social
