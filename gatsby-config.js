@@ -76,27 +76,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: [
-          'https://github-readme-stats-six-tau.vercel.app',
-          'https://novatorem.chasbob.vercel.app',
-        ],
-      },
-    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-transformer-remark`,
     `gatsby-transformer-yaml`,
     `gatsby-plugin-layout`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/about`, `/blog/*`],
-      },
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -163,7 +148,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-preact`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`,
+    // `gatsby-plugin-preact`,
+    // `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }
