@@ -88,5 +88,6 @@
     "clean": "gatsby clean",
     "lighthouse": "lighthouse http://localhost:9000 --view",
     "update-bulma-colors": "bulma-css-vars"
-  }
+  },
+  "packageManager": "yarn@3.1.1"
 }
