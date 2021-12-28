@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { FaHome } from 'react-icons/fa'
-import styles from './breadcrumb.module.scss'
+import { currentCrumb } from './breadcrumb.module.scss'
 
 export default function Breadcrumb({ location }) {
   const spanClass = 'mx-2'
@@ -43,9 +43,7 @@ export default function Breadcrumb({ location }) {
         } else {
           return (
             <li key={part}>
-              <span className={`${spanClass} ${styles.currentCrumb}`}>
-                {part}
-              </span>
+              <span className={`${spanClass} ${currentCrumb}`}>{part}</span>
             </li>
           )
         }

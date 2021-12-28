@@ -2,7 +2,7 @@ import React from 'react'
 import Navigation from '../components/navigation'
 import SEO from '../components/seo'
 import Footer from '../components/footer'
-import styles from './index.module.scss'
+import * as styles from './index.module.scss'
 import {
   Transition as ReactTransition,
   TransitionGroup,

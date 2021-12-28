@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
   FaEnvelope,
   FaGithub,
@@ -8,8 +8,15 @@ import {
 } from 'react-icons/fa'
 import { IconContext } from 'react-icons'
 import { graphql, useStaticQuery } from 'gatsby'
+import { invert } from './social.module.scss'
+import useThemeToggle from '../hooks/useThemeToggle'
 
-export default () => {
+const Social = () => {
+  const [theme, toggleTheme] = useThemeToggle()
+  const [ghColour, setGhColour] = useState('#dbd6d1')
+  useCallback(() => {
+    setGhColour(theme === 'light' ? '#24292e' : '#dbd6d1')
+  }, [theme, setGhColour])
   const data = useStaticQuery(graphql`
     query SocialQuery {
       contentfulPerson(contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" }) {
@@ -32,7 +39,7 @@ export default () => {
         href={`https://github.com/${github}`}
       >
         <span className="panel-icon">
-          <IconContext.Provider value={{ color: '#24292e' }}>
+          <IconContext.Provider value={{ color: ghColour }}>
             <FaGithub />
           </IconContext.Provider>
         </span>
@@ -101,3 +108,5 @@ export default () => {
 
   return <nav className="panel mt-3">{socials}</nav>
 }
+
+export default Social

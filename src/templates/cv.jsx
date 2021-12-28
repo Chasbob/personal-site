@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from './cv.module.scss'
+import { frame } from './cv.module.scss'
 import { navigate } from 'gatsby'
 
 const DefaultTemplate = () => {
@@ -8,9 +8,7 @@ const DefaultTemplate = () => {
       navigate('#frame')
     }, 350)
   }, [])
-  return (
-    <iframe id="frame" className={styles.frame} src="https://cv.chasbob.dev/" />
-  )
+  return <iframe id="frame" className={frame} src="https://cv.chasbob.dev/" />
 }
 
 export default DefaultTemplate

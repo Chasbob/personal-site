@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import style from './portfolio.module.scss'
+import { grid, gridItem, card, link } from './portfolio.module.scss'
 import { Section } from '../components/layout/section'
 import Card, {
   CardContent,
@@ -8,7 +8,7 @@ import Card, {
   CardImage,
 } from '../components/layout/card'
 
-export default ({ data }) => {
+const Portfolio = ({ data }) => {
   const { allContentfulPortfolio } = data
   const { edges: portfolio } = allContentfulPortfolio
   const categories = portfolio
@@ -34,13 +34,15 @@ export default ({ data }) => {
   )
 }
 
+export default Portfolio
+
 const Category = ({ items, title }) =>
   !!items && (
     <div className="section" key={title}>
       <h2 className="is-size-2 title is-capitalized is-family-primary">
         {title}
       </h2>
-      <div className={style.grid}>
+      <div className={grid}>
         {items.map((item) => (
           <Item {...item} key={item.title} />
         ))}
@@ -50,16 +52,16 @@ const Category = ({ items, title }) =>
 
 const Item = ({ title, link, image, role, description }) => {
   return (
-    <div className={style.gridItem}>
-      <Card className={`tile is-child ${style.card}`} key={title}>
+    <div className={gridItem}>
+      <Card className={`tile is-child ${card}`} key={title}>
         <CardHeader
           title={
-            <a className={style.link} href={link}>
+            <a className={link} href={link}>
               {title}
             </a>
           }
         />
-        <CardImage image={image.fluid} fluid />
+        <CardImage image={image.gatsbyImageData} fluid />
         <CardContent>
           <h1 className="is-text has-text-weight-bold">{role}</h1>
           <p className="is-text has-text-weight-light">{description}</p>
@@ -84,6 +86,7 @@ export const pageQuery = graphql`
           category
           link
           image {
+            gatsbyImageData
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid
             }
