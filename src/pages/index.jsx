@@ -40,7 +40,7 @@ const Spotify = ({ src }) => {
         image={
           <div
             className={image}
-            dangerouslySetInnerHTML={{ __html: atob(src) }}
+            dangerouslySetInnerHTML={{ __html: window.atob(src) }}
           />
         }
       />
@@ -55,7 +55,7 @@ const Readme = ({ src }) => (
       image={
         <div
           className={image}
-          dangerouslySetInnerHTML={{ __html: atob(src) }}
+          dangerouslySetInnerHTML={{ __html: window.atob(src) }}
         />
       }
     />
