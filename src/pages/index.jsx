@@ -23,8 +23,10 @@ export default function RootIndex({ data, serverData }) {
         <div className="container">
           <Columns>
             <SocialCard />
-            <Readme src={serverData.stats} />
-            <Spotify src={serverData.spotify} />
+            <div class="column"></div>
+            <div class="column"></div>
+            {/* <Readme src={serverData.stats} />
+            <Spotify src={serverData.spotify} /> */}
           </Columns>
         </div>
       </section>
@@ -93,7 +95,7 @@ export const pageQuery = graphql`
   }
 `
 
-export async function getServerData() {
+async function getServerData() {
   const urlToB64 = (url) =>
     fetch(url)
       .then((resp) => resp.blob())
@@ -104,7 +106,7 @@ export async function getServerData() {
     `https://github-readme-stats-six-tau.vercel.app/api?username=chasbob&count_private=true&hide_rank=true&hide=stars&hide_title=true&hide_border=true`
   )
   const spotify = await urlToB64(
-    `https://novatorem.chasbob.vercel.app/api/spotify`
+    `https://novatorem-chasbob.vercel.app/api/spotify`
   )
   return {
     props: {
