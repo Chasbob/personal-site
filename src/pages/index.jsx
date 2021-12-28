@@ -103,11 +103,9 @@ export async function getServerData() {
     const stats = await urlToB64(
       `https://github-readme-stats-six-tau.vercel.app/api?username=chasbob&count_private=true&hide_rank=true&hide=stars&hide_title=true&hide_border=true`
     )
-    console.log(stats)
     const spotify = await urlToB64(
       `https://novatorem.chasbob.vercel.app/api/spotify`
     )
-    console.log(spotify)
     return {
       props: {
         spotify: spotify,
