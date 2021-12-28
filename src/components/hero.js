@@ -9,6 +9,11 @@ export default ({ data }) => (
         <h2 className="subtitle is-family-sans-serif has-text-weight-light is-italic">
           {data.title}
         </h2>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.shortBio.childMarkdownRemark.html,
+          }}
+        />
       </div>
     </div>
   </section>

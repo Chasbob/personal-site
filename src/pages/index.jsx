@@ -89,6 +89,11 @@ export const pageQuery = graphql`
         node {
           name
           title
+          shortBio {
+            childMarkdownRemark {
+              html
+            }
+          }
         }
       }
     }
