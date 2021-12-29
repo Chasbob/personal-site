@@ -6,11 +6,6 @@
   "bugs": {
     "url": "https://github.com/Chasbob/personal-site/issues"
   },
-  "resolutions": {
-    "graphql": "^15.4.0",
-    "graphql-compose": "^7.25.0",
-    "webpack": "^5.24.2"
-  },
   "dependencies": {
     "@gatsbyjs/reach-router": "^1.3.6",
     "gatsby-image": "^3.9.0",
@@ -56,6 +51,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gatsby": "^4.4.0",
+    "graphql": "^15.0.0",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "sass": "^1.35.2",
@@ -88,5 +84,11 @@
     "clean": "gatsby clean",
     "lighthouse": "lighthouse http://localhost:9000 --view",
     "update-bulma-colors": "bulma-css-vars"
+  },
+  "packageManager": "yarn@3.1.1",
+  "peerDependencies": {
+    "@babel/core": "^7.12.3",
+    "gatsby": "^4.0.0-next",
+    "sass": "^1.30.0"
   }
 }
