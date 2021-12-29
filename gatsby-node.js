@@ -30,7 +30,6 @@ exports.createPages = async ({ graphql, actions }) => {
           context: {
             slug: post.slug,
           },
-          defer: true,
         })
       })
     })
