@@ -66,6 +66,7 @@ function NavBrand({ active, onToggle }) {
   return (
     <div className="navbar-brand">
       <a
+        role="button"
         className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
           navigate('/')
