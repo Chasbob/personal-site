@@ -65,7 +65,7 @@ function NavBar({ children, sticky }) {
 function NavBrand({ active, onToggle }) {
   return (
     <div className="navbar-brand">
-      <a
+      <div
         role="button"
         className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
@@ -73,8 +73,8 @@ function NavBrand({ active, onToggle }) {
         }}
       >
         <FaCode />
-      </a>
-      <a
+      </div>
+      <div
         role="button"
         onClick={onToggle}
         className={`navbar-burger ${active ? 'is-active' : ''}`}
@@ -84,7 +84,7 @@ function NavBrand({ active, onToggle }) {
         <span aria-hidden="true" />
         <span aria-hidden="true" />
         <span aria-hidden="true" />
-      </a>
+      </div>
     </div>
   )
 }

@@ -23,8 +23,8 @@ export default function RootIndex({ data, serverData }) {
         <div className="container">
           <Columns>
             <SocialCard />
-            <div class="column"></div>
-            <div class="column"></div>
+            <div className="column"></div>
+            <div className="column"></div>
             {/* <Readme src={serverData.stats} />
             <Spotify src={serverData.spotify} /> */}
           </Columns>
