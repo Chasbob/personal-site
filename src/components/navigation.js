@@ -67,6 +67,7 @@ function NavBrand({ active, onToggle }) {
     <div className="navbar-brand">
       <div
         role="button"
+        aria-label="Navigate to home page"
         className="navbar-item is-transparent is-button is-static is-unselectable"
         onClick={() => {
           navigate('/')
